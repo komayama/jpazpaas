@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Azure Functions で秒間 10 万のイベントを処理する | Japan PaaS Support Team Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="この記事は 旧 Japan Azure PaaS Support Blog からのコピーとなります。 記載されている内容は 2018 年 2 月 1 日 時点のものとなり、現時点におきましては変更されている可能性がありますので、ご注意下さい。         このポストは、2017 年 9 月 19 日に投稿された       Processing 100,000 Events Per Sec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Azure Functions で秒間 10 万のイベントを処理する">
+<meta property="og:url" content="https://komayama.github.io/jpazpaas/2018/02/01/functions-100k-events-per-second.html">
+<meta property="og:site_name" content="Japan PaaS Support Team Blog">
+<meta property="og:description" content="この記事は 旧 Japan Azure PaaS Support Blog からのコピーとなります。 記載されている内容は 2018 年 2 月 1 日 時点のものとなり、現時点におきましては変更されている可能性がありますので、ご注意下さい。         このポストは、2017 年 9 月 19 日に投稿された       Processing 100,000 Events Per Sec">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://komayama.github.io/jpazpaas/2018/02/01/functions-100k-events-per-second/01-overview.png">
+<meta property="og:image" content="https://komayama.github.io/jpazpaas/2018/02/01/functions-100k-events-per-second/02-monitoring.png">
+<meta property="og:image" content="https://komayama.github.io/jpazpaas/2018/02/01/functions-100k-events-per-second/query3.png">
+<meta property="og:image" content="https://komayama.github.io/jpazpaas/2018/02/01/functions-100k-events-per-second/query2.png">
+<meta property="og:image" content="https://komayama.github.io/jpazpaas/2018/02/01/functions-100k-events-per-second/04-distribution.png">
+<meta property="article:published_time" content="2018-01-31T15:00:00.000Z">
+<meta property="article:modified_time" content="2026-01-20T08:18:57.015Z">
+<meta property="article:author" content="Web Developer Platform WebApps Japan">
+<meta property="article:tag" content="MigratedArticle">
+<meta property="article:tag" content="Function App">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://komayama.github.io/jpazpaas/2018/02/01/functions-100k-events-per-second/01-overview.png">
+  
+    <link rel="alternate" href="../../../atom.xml" title="Japan PaaS Support Team Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="../../../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+  <link rel="manifest" href="../../../site.webmanifest">
+  <link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../../css/style.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/jpazpaas/">Home</a>
+        
+          <a class="main-nav-link" href="/jpazpaas/archives">Archives</a>
+        
+        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../../atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://komayama.github.io/jpazpaas"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../../index.html" id="logo">Japan PaaS Support Team Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="../../../index.html" id="subtitle">日本マイクロソフトの App Service, Service Bus, Service Fabric, Communication Services に関するサポート情報のブログです。サポートエンジニアがもつ知見や経験事例をご紹介していきます。</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2018/02/01/functions-100k-events-per-second" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Azure Functions で秒間 10 万のイベントを処理する
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Published: 
+        <a href="" class="article-date-single">
+  <time datetime="2018-01-31T15:00:00.000Z" itemprop="datePublished">2018-02-01</time>
+</a>
+        
+        
+        
+        <a href="https://github.com/komayama/jpazpaas/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+94dfe5bd-17ea-566b-a409-eefe63284c22%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BAzure+Functions+%E3%81%A7%E7%A7%92%E9%96%93+10+%E4%B8%87%E3%81%AE%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%82%92%E5%87%A6%E7%90%86%E3%81%99%E3%82%8B%5D%28https%3A%2F%2Fkomayama.github.io%2Fjpazpaas%2F2018%2F02%2F01%2Ffunctions-100k-events-per-second.html%29%0A*+Content+Source%3A+%5Barticles%2F2018%2F02%2F01%2Ffunctions-100k-events-per-second.html%5D%28https%3A%2F%2Fgithub.com%2Fkomayama%2Fjpazpaas%2Fblob%2Fmain%2Farticles%2F2018%2F02%2F01%2Ffunctions-100k-events-per-second.html%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://komayama.github.io/jpazpaas/2018/02/01/functions-100k-events-per-second.html" data-id="cmkmbrxtt0017rz1m34j4f73h" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- article summary -->
+<small><span style="font-style: italic">
+この記事は <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/archive/blogs/jpcie/azure-functions-で秒間-10-万のイベントを処理する方法">旧 Japan Azure PaaS Support Blog</a> からのコピーとなります。<br />
+記載されている内容は 2018 年 2 月 1 日 時点のものとなり、現時点におきましては変更されている可能性がありますので、ご注意下さい。
+</span></small><hr />
+<main class="content" data-bi-name="content" dir="ltr" id="main" lang="en-us" role="main">
+ <!-- <content> -->
+ <p>
+  このポストは、2017 年 9 月 19 日に投稿された
+  <a data-linktype="external" target="_blank" rel="noopener" href="https://blogs.msdn.microsoft.com/appserviceteam/2017/09/19/processing-100000-events-per-second-on-azure-functions/">
+   Processing 100,000 Events Per Second on Azure Functions
+  </a>
+  の翻訳です。
+ </p>
+ <p>
+ </p>
+ <p>
+  しばしば、
+  <a data-linktype="external" target="_blank" rel="noopener" href="https://azure.microsoft.com/en-us/services/functions/">
+   Azure Functions
+  </a>
+  の従量課金プランのスケーラビリティ/スループットの限界についてお客様からご質問をいただきます。簡易な答えは常に「それは場合によって異なりますが、ワークロードはどの程度ですか ？」です。 本日は、 Event Hubs /  IoT Hubs の高スケールなワークロードを Functions で実行し、プラットフォームから得られるパフォーマンスを最大限に引き出すために注意すべきいくつかの重要なポイントについて説明したいと思います。
+ </p>
+ <p>
+ </p>
+ <p>
+  私たちは
+  <a data-linktype="external" target="_blank" rel="noopener" href="https://blogs.msdn.microsoft.com/azurecat/2017/01/05/hello-world-welcome-to-azurecat-guidance/">
+   Azure CAT
+  </a>
+  チームと連携して、Function と
+  <a data-linktype="external" target="_blank" rel="noopener" href="https://azure.microsoft.com/en-us/services/event-hubs/">
+   Event Hubs
+  </a>
+  を使用したシンプルで代表的なイベント処理パイプラインを構築しました。テレメトリは
+  <a data-linktype="external" target="_blank" rel="noopener" href="https://azure.microsoft.com/en-us/services/application-insights/">
+   Application Insights
+  </a>
+  に送信されます。
+ </p>
+ <p>
+  <img alt="01-overview.png" data-linktype="external" src="/jpazpaas/2018/02/01/functions-100k-events-per-second/01-overview.png"/>
+ </p>
+ <p>
+ </p>
+ <p>
+  負荷生成器（Function で実行されています）は、バッチ処理されたメッセージを、Ingestion Event Hub に書き込みます。これらのメッセージは、与えられたセンサーからの一連の測定値を表します。Function は、Ingestion Event Hub からメッセージを収集し、そこから個々の測定値を抽出し、それらを追加のテレメトリとともに、それぞれ天気/地震データ用の Event Hub に書き込みます。加えて同じ  Function App 内の 2 つの Function（従量課金プラン）は、それぞれ個別の測定値を処理し、集約されたテレメトリを Application Insights に送信します。
+ </p>
+ <p>
+ </p>
+ <h2 id="performance">
+  Performance
+ </h2>
+ <p>
+  我々は、合計 9 日間、毎秒 100,000 イベントの負荷目標の下でシステムを実行しました。その間、システムは合計 760 億イベントを処理しました。パイプラインの e2e 待ち時間、すなわち、メッセージを Ingestion Event Hub に書き込んでから天気/地震の Function でメッセージを処理するまでに要した時間を測定しました。結果は次のとおりです。
+ </p>
+ <p>
+ </p>
+ <h4 id="e2e-latency-percentiles">
+  <strong>
+   E2E Latency Percentiles
+  </strong>
+ </h4>
+ <table>
+  <tbody>
+   <tr class="odd">
+    <td>
+     P50
+    </td>
+    <td>
+     P90
+    </td>
+    <td>
+     P95
+    </td>
+    <td>
+     P99
+    </td>
+    <td>
+     P99.9
+    </td>
+    <td>
+     P99.99
+    </td>
+    <td>
+     Max
+    </td>
+   </tr>
+   <tr class="even">
+    <td>
+     1,102.42ms
+    </td>
+    <td>
+     2,755.56ms
+    </td>
+    <td>
+     3,788.30ms
+    </td>
+    <td>
+     11,894.12ms
+    </td>
+    <td>
+     50,367.23ms
+    </td>
+    <td>
+     111,240.50ms
+    </td>
+    <td>
+     239,890.10ms
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+ </p>
+ <p>
+  簡単にお伝えすると：
+ </p>
+ <p>
+  ・メッセージの半分が、処理ハブに書き込まれてから1.2秒以内に処理されました
+ </p>
+ <p>
+  ・10 件中 9 件のメッセージが3秒以内に処理されました
+ </p>
+ <p>
+  ・1 分未満で 1,000 件のメッセージのうち 999 件が処理されました
+ </p>
+ <p>
+  ・すべてのメッセージが 5 分以内に処理されました
+ </p>
+ <p>
+ </p>
+ <h2 id="monitoring">
+  Monitoring
+ </h2>
+ <p>
+  Azure Functions には、WebJobs ダッシュボードと Application Insights（Azure FunctionsとApplication Insightsの統合は現在プレビュー中）の 2 つの監視用ソリューションが組み込まれています。 ダッシュボードは長時間実行されるジョブを考慮して設計されており、1  秒あたりに 10,000 回以上の Function が実行されるシナリオには最適化されていません。 幸いなことに、Application Insights は驚異的に頑健なテレメトリ システムであり、大規模なシナリオでは Azure Functions との連携が優れていることを確認しました。
+ </p>
+ <p>
+ </p>
+ <p>
+  App Insightを有効にするのは簡単です。Function App にインストルメント キーを追加するだけで、Azure Functions は自動的にApp Insightsにデータを送信し始めます。 詳細は
+  <a data-linktype="external" target="_blank" rel="noopener" href="https://blogs.msdn.microsoft.com/appserviceteam/2017/04/06/azure-functions-application-insights/">
+   こちら
+  </a>
+  をご覧ください。
+ </p>
+ <p>
+ </p>
+ <p>
+  Azureダッシュボードは高度にカスタマイズ可能で、App Insightsはその視覚的コンポーネントを固定するのに非常に効果的です。 このシナリオでは、非常に便利な監視ダッシュボードをまとめるのに 1〜2 時間程度しかかかりませんでした。
+ </p>
+ <p>
+ </p>
+ <p>
+  <img alt="02-monitoring.png" data-linktype="external" src="/jpazpaas/2018/02/01/functions-100k-events-per-second/02-monitoring.png"/>
+ </p>
+ <h2 id="configuration">
+  Configuration
+ </h2>
+ <p>
+  今回の結果を達成するためにいくつか注目すべき設定を行いました。
+ </p>
+ <p>
+ </p>
+ <ul>
+  <li>
+   Function はバッチでメッセージを処理します
+  </li>
+  <li>
+   WebJobs ダッシュボードを無効化し、監視とテレメトリーのためにApplication Insights を使用しています
+  </li>
+  <li>
+   各 Event Hubs は 100 個のパーティションで構成されています
+  </li>
+  <li>
+   データはパーティションキーなしで Event Hubs に送信されます
+  </li>
+  <li>
+   イベントはプロトコルバッファを使用してシリアル化されます
+  </li>
+ </ul>
+ <p>
+  それぞれの詳細については、以下を参照してください。
+ </p>
+ <p>
+ </p>
+ <h3 id="batching">
+  Batching
+ </h3>
+ <p>
+  Event Hubs でトリガーされる Function を記述して、単一のメッセージまたは複数のメッセージのバッチ処理を行うことができます。 後者に関しては、とても優れた性能特性を持っています。 スプリットする関数を例に取ってみましょう：
+ </p>
+ <p>
+ </p>
+ <pre><code> public static async Task Run(
+  EventData[] sensorEvent,
+  PartitionContext partitionContext,
+  IAsyncCollector outputWeatherData,
+  IAsyncCollector outputSeismicData,
+  TraceWriter log)
+  &#123;
+    foreach (var sensorData in sensorEvent)
+    &#123;
+      SensorType sensorType = SensorType.Unknown;
+
+      try
+      &#123;                   
+        if (sensorData.Properties.ContainsKey("SensorType"))
+        &#123;
+          System.Enum.TryParse(sensorData.Properties["SensorType"].ToString(), out sensorType);
+        &#125;
+
+        await ProcessEvent(sensorData, sensorType, partitionContext, outputWeatherData, outputSeismicData);
+      &#125;
+      catch(Exception ex)
+      &#123;
+        telemetryHelper.PostException(ex, sensorData, partitionContext.Lease.PartitionId, sensorType.ToString());
+      &#125;
+    &#125;                                   
+  &#125;
+</code></pre>
+ <p>
+ </p>
+ <p>
+  このコードに関する主な注意事項：
+ </p>
+ <ul>
+  <li>
+   <p>
+    イベントの配列は1回の実行で関数に渡されます
+   </p>
+  </li>
+  <li>
+   <p>
+    例外処理ブロックは、各イベントの処理をラップします
+   </p>
+  </li>
+ </ul>
+ <p>
+ </p>
+ <p>
+  配列ベースのアプローチは、各関数の実行よりもオーバーヘッドの面で優れています。このシステムは、関数を呼び出すときに多数のアクションを実行します。これらのアクションは、イベントごとに1回ではなく、イベントの配列に対して 1 回だけ発生します。注：JavaScript の Function の場合、バッチ処理を有効にするために、function.jsonの
+  <strong>
+   "cardinality"
+  </strong>
+  プロパティを明示的に
+  <strong>
+   "many"
+  </strong>
+  に設定する必要があります。（
+  <a data-linktype="external" target="_blank" rel="noopener" href="https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10">
+   こちら
+  </a>
+  の例を参照してください）
+ </p>
+ <p>
+ </p>
+ <p>
+  例外処理に対するこのアプローチは、メッセージの消失/スキップを防ぐ場合に重要です。 一般的には、後の処理/分析に失敗したイベントを格納するように例外ハンドラを作成します。 Azure Functions には Event Hub のデッドレターが組み込まれていないため、これは重要です。
+ </p>
+ <p>
+ </p>
+ <h3 id="webjobs-dashboard">
+  WebJobs Dashboard
+ </h3>
+ <p>
+  上記のとおり、私たちは監視のためにApp Insightを使用していたので、ダッシュボードを無効にしました。アプリケーション設定で、
+  <strong>
+   AzureWebJobsDashboard
+  </strong>
+  の設定を削除します。
+ </p>
+ <p>
+ </p>
+ <h3 id="partition-configuration">
+  Partition Configuration
+ </h3>
+ <p>
+  Azure Functions は Event Hubs SDK で提供される EventProcessorHost（詳細は
+  <a data-linktype="absolute-path" target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/event-hubs/event-hubs-programming-guide#event-processor-host">
+   こちら
+  </a>
+  を参照）を使用して、Event Hub メッセージを処理します。 EventProcessorHost は、アプリケーションを実行する各VMが複数のパーティションのリースを取得し、それらのパーティションでメッセージを処理できるようにする仕組みです。つまり、Event Hub に 2 つのパーティションしかない場合、任意の時間に 2 つの VM しかメッセージを処理できません。つまり、パーティション数が Function のスケーラビリティに上限を設定します。
+ </p>
+ <p>
+ </p>
+ <p>
+  Event Hub の Basic と Standard には、Event Hub ごとに 32 個までのパーティションの既定の制限がありますが、
+  <a data-linktype="external" target="_blank" rel="noopener" href="https://portal.azure.com/#create/Microsoft.Support">
+   課金サポート
+  </a>
+  に問い合わせることでこの制限を増やすことができます。Event Hub を100 個のパーティションに設定することにより、各 Function を 100 台の VM で同時に実行することができるようになりました。天気データ用の Function を 1分間に実行した一意の VM の数を数えると、下記のような結果になります。
+ </p>
+ <p>
+ </p>
+ <p>
+  <img alt="query3.png" data-linktype="external" src="/jpazpaas/2018/02/01/functions-100k-events-per-second/query3.png"/>
+ </p>
+ <p>
+ </p>
+ <p>
+  別の簡単なクエリを使用して、94 台の VM 上で作業が均等に分散されているか確認することができます。
+ </p>
+ <p>
+ </p>
+ <p>
+  <img alt="query2.png" data-linktype="external" src="/jpazpaas/2018/02/01/functions-100k-events-per-second/query2.png"/>
+ </p>
+ <p>
+ </p>
+ <p>
+  <img alt="04-distribution.png" data-linktype="external" src="/jpazpaas/2018/02/01/functions-100k-events-per-second/04-distribution.png"/>
+ </p>
+ <h3 id="partition-keys">
+  Partition Keys
+ </h3>
+ <p>
+  Event Hub のプログラミングガイドには、パーティションキーの
+  <a data-linktype="absolute-path" target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-programming-guide#partition-key">
+   概要
+  </a>
+  と、それをいつ使用したらよいかが記載されています。 このシナリオでは順序付けやステートフルな要件がないため、パーティションキーなしでイベントを生成しました。 これにより、実行のスループットと可用性が向上しました。
+ </p>
+ <p>
+ </p>
+ <h3 id="protocol-buffers">
+  Protocol Buffers
+ </h3>
+ <p>
+  1秒間に10万回以上のイベントを読み書きする場合は、シリアライズ・ステップを実行するのに要する時間とデータサイズの観点から、これらのイベントのシリアライゼーションとデシリアライゼーションを可能な限り効率的にしたいと考えています。
+  <a data-linktype="external" target="_blank" rel="noopener" href="https://developers.google.com/protocol-buffers/">
+   プロトコルバッファー
+  </a>
+  は、扱いやすい高性能シリアル化フォーマットです。 イベントから気象測定値のバッチをデシリアライズして処理するコードの例を次に示します。
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <pre><code> if (sensorType == SensorType.Weather)
+&#123;
+  var batch = WeatherReadingBatch.Parser.ParseFrom(sensorData.GetBytes());
+  var messages = batch.SensorReadings
+    .Select(reading =&gt; EnrichData(enqueuedTime, reading));
+  await WriteOutput(messages, sensorData.PartitionKey, outputWeatherData);
+&#125;
+</code></pre>
+ <p>
+ </p>
+ <p>
+  このシナリオで使用する.protoファイルを知りたい場合は、
+  <a data-linktype="external" target="_blank" rel="noopener" href="https://gist.github.com/paulbatum/c918e19cadb43fdfcce978d58d97d235">
+   ここ
+  </a>
+  を参照してください。
+ </p>
+ <h2 id="section">
+ </h2>
+ <h2 id="cost">
+  Cost
+ </h2>
+ <p>
+  Function App とその依存リソースを 9 日間実行するための費用総額は、
+  <strong>
+   約 1,200 ドル
+  </strong>
+  でした。各サービスの 1 時間あたりのコストは次のようになります。
+ </p>
+ <p>
+ </p>
+ <table>
+  <tbody>
+   <tr class="odd">
+    <td>
+     <strong>
+      Service
+     </strong>
+    </td>
+    <td>
+     <strong>
+      Cost per Hour (USD)
+     </strong>
+    </td>
+   </tr>
+   <tr class="even">
+    <td>
+     Functions
+    </td>
+    <td>
+     $2.71
+    </td>
+   </tr>
+   <tr class="odd">
+    <td>
+     Storage
+    </td>
+    <td>
+     $1.80
+    </td>
+   </tr>
+   <tr class="even">
+    <td>
+     Application Insights
+    </td>
+    <td>
+     $1.03
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+ </p>
+ <p>
+  注目すべき重要な点は次のとおりです。
+ </p>
+ <p>
+ </p>
+ <ul>
+  <li>
+   <p>
+    このデータには、負荷ジェネレータおよびイベントハブのコストは含まれていません。これらの最適化には労力が費やされなかったためです。
+   </p>
+  </li>
+  <li>
+   <p>
+    Azure Storage の費用は、1 時間あたり約 5,000 万件のトランザクションに基づいています。これらのトランザクションのほとんどは、Event Hub のチェックポイントに関連しています。
+   </p>
+  </li>
+  <li>
+   <p>
+    Application Insightsの費用は、時間当たり 450 メガバイトのデータ収集量に基づいています。
+   </p>
+  </li>
+ </ul>
+ <p>
+ </p>
+ <p>
+  Azure Monitor REST API を使用して実行可能な実行カウントと実行ユニットのデータを使用することで、Function Appのコストをより詳細に把握できます（詳細は
+  <a data-linktype="external" target="_blank" rel="noopener" href="https://stackoverflow.com/questions/41128329/how-can-i-programmatically-access-azure-functions-usage-metrics">
+   こちら
+  </a>
+  ）。 1 時間分のデータを照会すると、次のようになります。
+ </p>
+ <p>
+ </p>
+ <ul>
+  <li>
+   <p>
+    Function Execution Counts: 6,500,012
+   </p>
+  </li>
+  <li>
+   <p>
+    Function Execution Units：90,305,037,184
+   </p>
+  </li>
+ </ul>
+ <p>
+ </p>
+ <p>
+  ここでのFunction Execution Units は、mb-milliseconds 単位で測定されることに注意してください。これらをgb-secondsに変換するには、1,024,000で割ります。（Function の価格設定の詳細は
+  <a data-linktype="external" target="_blank" rel="noopener" href="https://azure.microsoft.com/en-us/pricing/details/functions/">
+   ここ
+  </a>
+  にあります。簡単な補助プログラムは
+  <a data-linktype="external" target="_blank" rel="noopener" href="https://gist.github.com/paulbatum/2b16c5f92351ed1c59e3a2b8a727ca97">
+   ここ
+  </a>
+  にあります）：
+ </p>
+ <p>
+ </p>
+ <p>
+  時間あたりのコスト=（6,500,012回の実行*（$ 0.20 / 1,000,000））+（（90,305,037,184単位/（1024 * 1000））* $ 0.000016）= 2.71ドル
+ </p>
+ <p>
+ </p>
+ <h2 id="summary">
+  Summary
+ </h2>
+ <p>
+  Azure Functions の従量課金プランは、何百もの VM 上で実行するようにアプリケーションをスケーリングすることができ、膨大な計算容量の確保のために料金を支払うことなく、高パフォーマンスが要求されるシナリオを実現可能にします。 Azure Functions の詳細とサーバレス技術でのクラウドアプリケーションの構築については、
+  <a data-linktype="external" target="_blank" rel="noopener" href="https://azure.microsoft.com/en-us/services/functions/">
+   ここ
+  </a>
+  から始めてください。
+ </p>
+ <!-- </content> -->
+</main>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../tags/Function-App/" rel="tag">Function App</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../tags/MigratedArticle/" rel="tag">MigratedArticle</a></li></ul>
+
+        
+        <a href="https://github.com/komayama/jpazpaas/edit/main/articles/2018/02/01/functions-100k-events-per-second.html" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../03/13/api-management-management-endpoint-port-change.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          [API Management] 2018年6月1日に管理エンドポイントのポートが変更されます
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../01/30/webapps-backups-failed.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Web Apps のバックアップが失敗しました。さぁ、サポート チケットを開きましょう。</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../2025/12/22/How-to-resolve-the-document-key-character-limit-error.html">ドキュメントキー文字数制限エラーの解消法</a>
+          </li>
+        
+          <li>
+            <a href="../../../2022/12/16/How-to-restart-unhealty-instance.html">App Service におけるインスタンスを指定した再起動手順</a>
+          </li>
+        
+          <li>
+            <a href="../../../2023/05/31/Access-to-EasyAuth-enabled-App-Service-via-Azure-Front-Door.html">Azure Front Door を経由してAzure AD 認証を有効にしたApp Serviceへのアクセス</a>
+          </li>
+        
+          <li>
+            <a href="../../../2024/05/08/how-to-check-tls-version-of-storage-accounts.html">ストレージアカウントの最小 TLS バージョンを確認する方法について</a>
+          </li>
+        
+          <li>
+            <a href="../../../2022/03/09/Application-Gateway-front-of-App-Service-auth.html">App Service の前段に ApplicationGateway を配置した際の Azure AD 認証</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/ACS/" rel="tag">ACS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/AI-Search/" rel="tag">AI Search</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/API-Management/" rel="tag">API Management</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/ARM/" rel="tag">ARM</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/ARM-Template/" rel="tag">ARM Template</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/App-Servce/" rel="tag">App Servce</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/App-Service/" rel="tag">App Service</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/App-Service-Environment/" rel="tag">App Service Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/App-Service-on-Linux/" rel="tag">App Service on Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/App-Service-%E8%A8%BC%E6%98%8E%E6%9B%B8/" rel="tag">App Service 証明書</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/App-Service-Web-Apps-Java/" rel="tag">App Service, Web Apps, Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Application-Gateway/" rel="tag">Application Gateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Application-Insights/" rel="tag">Application Insights</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Azure/" rel="tag">Azure</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Azure-AD%E8%AA%8D%E8%A8%BC/" rel="tag">Azure AD認証</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Azure-App-Service/" rel="tag">Azure App Service</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Azure-Cache-for-Redis/" rel="tag">Azure Cache for Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Azure-Communication-Services/" rel="tag">Azure Communication Services</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Azure-Front-Door/" rel="tag">Azure Front Door</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Azure-Functions/" rel="tag">Azure Functions</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Azure-Media-Service/" rel="tag">Azure Media Service</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Azure-Media-Services/" rel="tag">Azure Media Services</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Azure-PowerShell/" rel="tag">Azure PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Azure-Resource-Graph/" rel="tag">Azure Resource Graph</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Azure-Resource-Manager-ARM/" rel="tag">Azure Resource Manager (ARM)</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Azure-Support/" rel="tag">Azure Support</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Azure-Video-Indexer/" rel="tag">Azure Video Indexer</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Cloud-Service/" rel="tag">Cloud Service</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Cloud-Services/" rel="tag">Cloud Services</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Container-Apps/" rel="tag">Container Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Durable-Functions/" rel="tag">Durable Functions</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Dynamics-365/" rel="tag">Dynamics 365</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Email/" rel="tag">Email</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Event-Grid/" rel="tag">Event Grid</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Event-Hubs/" rel="tag">Event Hubs</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Function-App/" rel="tag">Function App</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Function-Apps/" rel="tag">Function Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Kudu/" rel="tag">Kudu</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Lighthouse/" rel="tag">Lighthouse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Logic-Apps/" rel="tag">Logic Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Metric/" rel="tag">Metric</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/MigratedArticle/" rel="tag">MigratedArticle</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Monitor/" rel="tag">Monitor</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Node-js/" rel="tag">Node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Notification-Hubs/" rel="tag">Notification Hubs</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Policy/" rel="tag">Policy</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/SMTP/" rel="tag">SMTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Service-Bus/" rel="tag">Service Bus</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Service-Fabric/" rel="tag">Service Fabric</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Static-Web-Apps/" rel="tag">Static Web Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Storage/" rel="tag">Storage</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Subscription/" rel="tag">Subscription</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Web-App/" rel="tag">Web App</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/Web-Apps/" rel="tag">Web Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/WebJobs/" rel="tag">WebJobs</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/app-service/" rel="tag">app service</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/etc/" rel="tag">etc</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E5%B1%A5%E6%AD%B4/" rel="tag">デプロイ履歴</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../tags/%E3%83%88%E3%83%AA%E3%82%AC%E3%83%BC%E3%83%BB%E3%83%90%E3%82%A4%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0-%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA/" rel="tag">トリガー・バインディング シリーズ</a></li></ul>  -->
+      <ul class="tag-list"></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2025/12/">2025 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2025/10/">2025 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2025/09/">2025 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2025/08/">2025 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2025/07/">2025 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2025/05/">2025 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2025/04/">2025 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2025/02/">2025 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2024/12/">2024 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2024/11/">2024 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2024/10/">2024 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2024/08/">2024 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2024/06/">2024 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2024/05/">2024 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2024/04/">2024 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2024/03/">2024 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2024/02/">2024 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2023/12/">2023 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2023/10/">2023 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2023/09/">2023 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2023/07/">2023 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2022/07/">2022 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2022/04/">2022 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2021/12/">2021 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2021/04/">2021 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2021/03/">2021 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2021/02/">2021 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2021/01/">2021 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2020/12/">2020 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2020/11/">2020 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2020/10/">2020 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2020/08/">2020 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2020/07/">2020 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2020/06/">2020 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2019/08/">2019 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2018/10/">2018 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2018/09/">2018 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2018/08/">2018 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2018/05/">2018 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2018/04/">2018 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2018/03/">2018 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2018/02/">2018 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2018/01/">2018 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2017/12/">2017 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2017/08/">2017 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2017/04/">2017 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2017/03/">2017 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2017/01/">2017 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2016/12/">2016 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2016/11/">2016 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2016/10/">2016 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../archives/2016/09/">2016 / 09</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../../tags/ACS/" style="font-size: 10px;">ACS</a> <a href="../../../tags/AI-Search/" style="font-size: 15px;">AI Search</a> <a href="../../../tags/API-Management/" style="font-size: 15.83px;">API Management</a> <a href="../../../tags/ARM/" style="font-size: 11.67px;">ARM</a> <a href="../../../tags/ARM-Template/" style="font-size: 10px;">ARM Template</a> <a href="../../../tags/App-Servce/" style="font-size: 10px;">App Servce</a> <a href="../../../tags/App-Service/" style="font-size: 20px;">App Service</a> <a href="../../../tags/App-Service-Environment/" style="font-size: 12.5px;">App Service Environment</a> <a href="../../../tags/App-Service-on-Linux/" style="font-size: 10px;">App Service on Linux</a> <a href="../../../tags/App-Service-%E8%A8%BC%E6%98%8E%E6%9B%B8/" style="font-size: 13.33px;">App Service 証明書</a> <a href="../../../tags/App-Service-Web-Apps-Java/" style="font-size: 10px;">App Service, Web Apps, Java</a> <a href="../../../tags/Application-Gateway/" style="font-size: 10.83px;">Application Gateway</a> <a href="../../../tags/Application-Insights/" style="font-size: 10px;">Application Insights</a> <a href="../../../tags/Azure/" style="font-size: 10.83px;">Azure</a> <a href="../../../tags/Azure-AD%E8%AA%8D%E8%A8%BC/" style="font-size: 10px;">Azure AD認証</a> <a href="../../../tags/Azure-App-Service/" style="font-size: 10px;">Azure App Service</a> <a href="../../../tags/Azure-Cache-for-Redis/" style="font-size: 10.83px;">Azure Cache for Redis</a> <a href="../../../tags/Azure-Communication-Services/" style="font-size: 12.5px;">Azure Communication Services</a> <a href="../../../tags/Azure-Front-Door/" style="font-size: 10px;">Azure Front Door</a> <a href="../../../tags/Azure-Functions/" style="font-size: 10px;">Azure Functions</a> <a href="../../../tags/Azure-Media-Service/" style="font-size: 10px;">Azure Media Service</a> <a href="../../../tags/Azure-Media-Services/" style="font-size: 10px;">Azure Media Services</a> <a href="../../../tags/Azure-PowerShell/" style="font-size: 10px;">Azure PowerShell</a> <a href="../../../tags/Azure-Resource-Graph/" style="font-size: 10.83px;">Azure Resource Graph</a> <a href="../../../tags/Azure-Resource-Manager-ARM/" style="font-size: 10px;">Azure Resource Manager (ARM)</a> <a href="../../../tags/Azure-Support/" style="font-size: 10.83px;">Azure Support</a> <a href="../../../tags/Azure-Video-Indexer/" style="font-size: 10px;">Azure Video Indexer</a> <a href="../../../tags/Cloud-Service/" style="font-size: 10px;">Cloud Service</a> <a href="../../../tags/Cloud-Services/" style="font-size: 12.5px;">Cloud Services</a> <a href="../../../tags/Container-Apps/" style="font-size: 14.17px;">Container Apps</a> <a href="../../../tags/Durable-Functions/" style="font-size: 10.83px;">Durable Functions</a> <a href="../../../tags/Dynamics-365/" style="font-size: 10px;">Dynamics 365</a> <a href="../../../tags/Email/" style="font-size: 10px;">Email</a> <a href="../../../tags/Event-Grid/" style="font-size: 10px;">Event Grid</a> <a href="../../../tags/Event-Hubs/" style="font-size: 11.67px;">Event Hubs</a> <a href="../../../tags/Function-App/" style="font-size: 19.17px;">Function App</a> <a href="../../../tags/Function-Apps/" style="font-size: 10.83px;">Function Apps</a> <a href="../../../tags/Kudu/" style="font-size: 10.83px;">Kudu</a> <a href="../../../tags/Lighthouse/" style="font-size: 10.83px;">Lighthouse</a> <a href="../../../tags/Logic-Apps/" style="font-size: 10px;">Logic Apps</a> <a href="../../../tags/Metric/" style="font-size: 10px;">Metric</a> <a href="../../../tags/MigratedArticle/" style="font-size: 18.33px;">MigratedArticle</a> <a href="../../../tags/Monitor/" style="font-size: 10px;">Monitor</a> <a href="../../../tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="../../../tags/Notification-Hubs/" style="font-size: 10.83px;">Notification Hubs</a> <a href="../../../tags/Policy/" style="font-size: 12.5px;">Policy</a> <a href="../../../tags/PowerShell/" style="font-size: 10px;">PowerShell</a> <a href="../../../tags/SMTP/" style="font-size: 10px;">SMTP</a> <a href="../../../tags/Service-Bus/" style="font-size: 10.83px;">Service Bus</a> <a href="../../../tags/Service-Fabric/" style="font-size: 10px;">Service Fabric</a> <a href="../../../tags/Static-Web-Apps/" style="font-size: 10px;">Static Web Apps</a> <a href="../../../tags/Storage/" style="font-size: 16.67px;">Storage</a> <a href="../../../tags/Subscription/" style="font-size: 10px;">Subscription</a> <a href="../../../tags/Web-App/" style="font-size: 10px;">Web App</a> <a href="../../../tags/Web-Apps/" style="font-size: 17.5px;">Web Apps</a> <a href="../../../tags/WebJobs/" style="font-size: 11.67px;">WebJobs</a> <a href="../../../tags/app-service/" style="font-size: 10px;">app service</a> <a href="../../../tags/etc/" style="font-size: 11.67px;">etc</a> <a href="../../../tags/%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E5%B1%A5%E6%AD%B4/" style="font-size: 10.83px;">デプロイ履歴</a> <a href="../../../tags/%E3%83%88%E3%83%AA%E3%82%AC%E3%83%BC%E3%83%BB%E3%83%90%E3%82%A4%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0-%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA/" style="font-size: 14.17px;">トリガー・バインディング シリーズ</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <a href="https://privacy.microsoft.com/ja-jp/privacystatement" target="_blank" rel=”noopener”>Privacy & Cookies</a> |  
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/copyright" target="_blank" rel=”noopener”>Terms of use</a> |
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/trademarks" target="_blank" rel=”noopener”>Trademarks</a> |
+      &copy; 2026 Web Developer Platform WebApps Japan<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="../../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
