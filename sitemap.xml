@@ -2,21 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://komayama.github.io/jpazpaas/2026/01/16/i-can-listblobs-but-i-cant-deleteblobs.html</loc>
+    
+    <lastmod>2026-01-29</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://komayama.github.io/jpazpaas/2025/12/22/How-to-resolve-the-document-key-character-limit-error.html</loc>
-    
-    <lastmod>2026-01-29</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://komayama.github.io/jpazpaas/2025/07/31/Potential-breaking-change-for-older-versions.html</loc>
-    
-    <lastmod>2026-01-29</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://komayama.github.io/jpazpaas/2025/09/05/Migration-of-functionscdn.azureedge.net-Subdomain.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
@@ -31,6 +24,20 @@
   
   <url>
     <loc>https://komayama.github.io/jpazpaas/2025/09/08/Azure-functions-trigger-and-binding-series-servicebus.html</loc>
+    
+    <lastmod>2026-01-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://komayama.github.io/jpazpaas/2025/07/31/Potential-breaking-change-for-older-versions.html</loc>
+    
+    <lastmod>2026-01-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://komayama.github.io/jpazpaas/2025/09/05/Migration-of-functionscdn.azureedge.net-Subdomain.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
@@ -86,14 +93,14 @@
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/2025/02/26/Azure-functions-trigger-and-binding-series-iothub.html</loc>
+    <loc>https://komayama.github.io/jpazpaas/2025/02/26/Azure-functions-trigger-and-binding-series-queue.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/2025/02/26/Azure-functions-trigger-and-binding-series-queue.html</loc>
+    <loc>https://komayama.github.io/jpazpaas/2025/02/26/Azure-functions-trigger-and-binding-series-iothub.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
@@ -156,14 +163,21 @@
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/2024/07/30/How-to-use-GithubApp-for-self-hosted-runner-on-ContainerApps-Job.html</loc>
+    <loc>https://komayama.github.io/jpazpaas/2024/08/05/change-lease-status-from-broken-to-available.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/2024/08/05/change-lease-status-from-broken-to-available.html</loc>
+    <loc>https://komayama.github.io/jpazpaas/2024/07/30/How-to-create-custom-policy.html</loc>
+    
+    <lastmod>2026-01-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://komayama.github.io/jpazpaas/2024/07/30/How-to-use-GithubApp-for-self-hosted-runner-on-ContainerApps-Job.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
@@ -178,13 +192,6 @@
   
   <url>
     <loc>https://komayama.github.io/jpazpaas/2024/05/27/Logs-of-python-logging-library-recorded-in-AppServiceConsoleLogs.html</loc>
-    
-    <lastmod>2026-01-29</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://komayama.github.io/jpazpaas/2024/07/30/How-to-create-custom-policy.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
@@ -317,6 +324,13 @@
   </url>
   
   <url>
+    <loc>https://komayama.github.io/jpazpaas/2024/02/09/Diagnostics-tools-for-App-Service-on-Linux-Node.js-apps.html</loc>
+    
+    <lastmod>2026-01-29</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://komayama.github.io/jpazpaas/2024/01/30/Improvements-to-DNS-configuration-and-name-resolution-in-App-Service.html</loc>
     
     <lastmod>2026-01-29</lastmod>
@@ -325,13 +339,6 @@
   
   <url>
     <loc>https://komayama.github.io/jpazpaas/2024/01/31/Failed-to-create-Functions-when-selecting-an-existing-storage-account-from-Azure-Portal.html</loc>
-    
-    <lastmod>2026-01-29</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://komayama.github.io/jpazpaas/2024/02/09/Diagnostics-tools-for-App-Service-on-Linux-Node.js-apps.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
@@ -359,13 +366,6 @@
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/2024/01/25/backup-search-service.html</loc>
-    
-    <lastmod>2026-01-29</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://komayama.github.io/jpazpaas/2024/01/25/search-private-access-to-openai.html</loc>
     
     <lastmod>2026-01-29</lastmod>
@@ -374,6 +374,13 @@
   
   <url>
     <loc>https://komayama.github.io/jpazpaas/2024/01/19/Azure-Role-for-using-Azure-Email-Services.html</loc>
+    
+    <lastmod>2026-01-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://komayama.github.io/jpazpaas/2024/01/25/backup-search-service.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
@@ -415,13 +422,6 @@
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/2023/11/20/cognitive-search-synonyms.html</loc>
-    
-    <lastmod>2026-01-29</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://komayama.github.io/jpazpaas/2023/11/10/Troubleshooting-ingress-issues-on-Azure-Container-Apps.html</loc>
     
     <lastmod>2026-01-29</lastmod>
@@ -430,6 +430,13 @@
   
   <url>
     <loc>https://komayama.github.io/jpazpaas/2023/11/16/Container-Apps-and-failed-revisions.html</loc>
+    
+    <lastmod>2026-01-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://komayama.github.io/jpazpaas/2023/11/20/cognitive-search-synonyms.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
@@ -527,6 +534,13 @@
   </url>
   
   <url>
+    <loc>https://komayama.github.io/jpazpaas/2023/06/20/cognitive-search-unexpected-search-results.html</loc>
+    
+    <lastmod>2026-01-29</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://komayama.github.io/jpazpaas/2023/06/23/2023-06-09-Connect-an-email-domain-to-a-Communication-Service-Resource.html</loc>
     
     <lastmod>2026-01-29</lastmod>
@@ -535,13 +549,6 @@
   
   <url>
     <loc>https://komayama.github.io/jpazpaas/2023/06/15/How-To-Expire-SAS-Token.html</loc>
-    
-    <lastmod>2026-01-29</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://komayama.github.io/jpazpaas/2023/06/20/cognitive-search-unexpected-search-results.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
@@ -562,14 +569,14 @@
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/2023/05/25/Kudu-login-faq.html</loc>
+    <loc>https://komayama.github.io/jpazpaas/2023/05/22/eventhubs-standard-throughput-units.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/2023/05/22/eventhubs-standard-throughput-units.html</loc>
+    <loc>https://komayama.github.io/jpazpaas/2023/05/25/Kudu-login-faq.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
@@ -912,14 +919,14 @@
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/2022/06/17/upgrade-azure-functions-runtime-from-v3-to-v4-using-slot.html</loc>
+    <loc>https://komayama.github.io/jpazpaas/2022/06/07/PHP-minor-update.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/2022/06/07/PHP-minor-update.html</loc>
+    <loc>https://komayama.github.io/jpazpaas/2022/06/17/upgrade-azure-functions-runtime-from-v3-to-v4-using-slot.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
@@ -940,14 +947,14 @@
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/2022/05/11/How-to-stream-video-with-capture-on-Azure-Media-Services.html</loc>
+    <loc>https://komayama.github.io/jpazpaas/2022/04/21/blob-md5-verification.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/2022/04/21/blob-md5-verification.html</loc>
+    <loc>https://komayama.github.io/jpazpaas/2022/05/11/How-to-stream-video-with-capture-on-Azure-Media-Services.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
@@ -989,14 +996,14 @@
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/2022/02/25/www-subdomain-appservice-certificate.html</loc>
+    <loc>https://komayama.github.io/jpazpaas/2021/12/13/log4shell-on-appservice.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/2021/12/13/log4shell-on-appservice.html</loc>
+    <loc>https://komayama.github.io/jpazpaas/2022/02/25/www-subdomain-appservice-certificate.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
@@ -1024,14 +1031,14 @@
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/2021/09/29/app-service-snat.html</loc>
+    <loc>https://komayama.github.io/jpazpaas/2021/09/22/css-from-interns-point-of-view.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/2021/09/22/css-from-interns-point-of-view.html</loc>
+    <loc>https://komayama.github.io/jpazpaas/2021/09/29/app-service-snat.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
@@ -1052,13 +1059,6 @@
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/2021/09/01/monitor-aps-file-system-storage-usage.html</loc>
-    
-    <lastmod>2026-01-29</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://komayama.github.io/jpazpaas/2021/09/10/faile-to-enable-zone-redundancy.html</loc>
     
     <lastmod>2026-01-29</lastmod>
@@ -1073,7 +1073,7 @@
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/2021/08/13/unable-to-see-mycustomer.html</loc>
+    <loc>https://komayama.github.io/jpazpaas/2021/09/01/monitor-aps-file-system-storage-usage.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
@@ -1087,7 +1087,21 @@
   </url>
   
   <url>
+    <loc>https://komayama.github.io/jpazpaas/2021/08/13/unable-to-see-mycustomer.html</loc>
+    
+    <lastmod>2026-01-29</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://komayama.github.io/jpazpaas/2021/07/09/content-type-unable-to-export-is-included.html</loc>
+    
+    <lastmod>2026-01-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://komayama.github.io/jpazpaas/2021/04/23/storage-analytics-log.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
@@ -1109,13 +1123,6 @@
   
   <url>
     <loc>https://komayama.github.io/jpazpaas/2021/07/01/sendgrid.html</loc>
-    
-    <lastmod>2026-01-29</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://komayama.github.io/jpazpaas/2021/04/23/storage-analytics-log.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
@@ -1171,13 +1178,6 @@
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/2020/11/04/apim-content-length-mismatch.html</loc>
-    
-    <lastmod>2026-01-29</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://komayama.github.io/jpazpaas/2020/12/02/cache-failover.html</loc>
     
     <lastmod>2026-01-29</lastmod>
@@ -1200,6 +1200,13 @@
   
   <url>
     <loc>https://komayama.github.io/jpazpaas/2020/10/13/policy-activity-log.html</loc>
+    
+    <lastmod>2026-01-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://komayama.github.io/jpazpaas/2020/11/04/apim-content-length-mismatch.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
@@ -1241,6 +1248,13 @@
   </url>
   
   <url>
+    <loc>https://komayama.github.io/jpazpaas/2020/07/20/avoid-deleting-resource-group.html</loc>
+    
+    <lastmod>2026-01-29</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://komayama.github.io/jpazpaas/2020/07/29/how-to-restrict-access-to-storage-used-by-azure-functions.html</loc>
     
     <lastmod>2026-01-29</lastmod>
@@ -1269,13 +1283,6 @@
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/2020/07/20/avoid-deleting-resource-group.html</loc>
-    
-    <lastmod>2026-01-29</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://komayama.github.io/jpazpaas/2018/10/30/webapps-functions-connect-storageaccount.html</loc>
     
     <lastmod>2026-01-29</lastmod>
@@ -1290,13 +1297,6 @@
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/2018/08/21/webapp-for-containers-docker-hub-maintenance.html</loc>
-    
-    <lastmod>2026-01-29</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://komayama.github.io/jpazpaas/2018/08/29/webapps-functions-network-utils.html</loc>
     
     <lastmod>2026-01-29</lastmod>
@@ -1305,6 +1305,13 @@
   
   <url>
     <loc>https://komayama.github.io/jpazpaas/2018/05/30/azure-support-enginner-recruting.html</loc>
+    
+    <lastmod>2026-01-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://komayama.github.io/jpazpaas/2018/08/21/webapp-for-containers-docker-hub-maintenance.html</loc>
     
     <lastmod>2026-01-29</lastmod>
     
@@ -1516,7 +1523,7 @@
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/tags/Function-App/</loc>
+    <loc>https://komayama.github.io/jpazpaas/tags/etc/</loc>
     <lastmod>2026-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1537,6 +1544,13 @@
   </url>
   
   <url>
+    <loc>https://komayama.github.io/jpazpaas/tags/WebJobs/</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://komayama.github.io/jpazpaas/tags/Cloud-Services/</loc>
     <lastmod>2026-01-29</lastmod>
     <changefreq>daily</changefreq>
@@ -1544,7 +1558,14 @@
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/tags/Monitor/</loc>
+    <loc>https://komayama.github.io/jpazpaas/tags/Azure-PowerShell/</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://komayama.github.io/jpazpaas/tags/Function-App/</loc>
     <lastmod>2026-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1558,7 +1579,7 @@
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/tags/etc/</loc>
+    <loc>https://komayama.github.io/jpazpaas/tags/Service-Fabric/</loc>
     <lastmod>2026-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1636,13 +1657,6 @@
   
   <url>
     <loc>https://komayama.github.io/jpazpaas/tags/Storage/</loc>
-    <lastmod>2026-01-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://komayama.github.io/jpazpaas/tags/WebJobs/</loc>
     <lastmod>2026-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1915,14 +1929,7 @@
   </url>
   
   <url>
-    <loc>https://komayama.github.io/jpazpaas/tags/Azure-PowerShell/</loc>
-    <lastmod>2026-01-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://komayama.github.io/jpazpaas/tags/Service-Fabric/</loc>
+    <loc>https://komayama.github.io/jpazpaas/tags/Monitor/</loc>
     <lastmod>2026-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
