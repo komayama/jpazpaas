@@ -81,12 +81,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-2024/03/26/Prevent-crashes-Kudu" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2024/03/13/Troubleshoot%20intermittent%20connectivity%20issue%20in%20azure%20app%20service" class="article article-type-post" itemscope itemprop="blogPost">
 
   <div class="article-inner">
     <!-- post date -->
     <div class="article-meta">
-      <a href="../../2024/03/26/Prevent-crashes-Kudu.html" class="article-date">
+      <a href="../../2024/03/13/Troubleshoot%20intermittent%20connectivity%20issue%20in%20azure%20app%20service.html" class="article-date">
   <time datetime="2024-03-25T15:00:00.000Z" itemprop="datePublished">2024-03-26</time>
 </a>
       
@@ -99,7 +99,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2024/03/26/Prevent-crashes-Kudu.html">「&#39;system.webServer/runtime&#39; already defined 」エラーによる Kudu クラッシュの回避方法について</a>
+      <a class="article-title" href="../../2024/03/13/Troubleshoot%20intermittent%20connectivity%20issue%20in%20azure%20app%20service.html">[日本語訳]App Service における断続的な接続問題のトラブルシューティング</a>
     </h1>
   
 
@@ -109,20 +109,18 @@
     <!-- post caption -->
     <div class="article-entry" itemprop="articleBody">
       
-        お世話になっております。App Service サポート担当の行本です。
-本記事は 2024 年 3 月 20 日に公開されました Prevent crashes due to ‘system.webServer/runtime’ already defined の日本語訳です。翻訳内容には細心の注意を払っておりますが、もし原文内容と齟齬がある場合は、原文の内容を優先ください。  
-
-本記事では、App Service / Azure Functions (以下、アプリと呼称します) において、お客様がカスタム XDT 変換、または古いバージョンの Site Extension (拡張機能) を使用していた場合に発生する可能性のある問題について説明します。症状は以下のとおりです。  
-
-Kudu (SCM) サイトがクラッシュし、復旧しません。(Kudu サイトにアクセスした際、”HTTP...
+        お世話になっております。App Service サポート担当の森です。
+本記事は Apps on Azure Blog にて2023 年 11 月に公開されている Troubleshoot intermittent connectivity issue in azure app service の日本語抄訳としてご案内いたします。
+App Service における断続的な接続問題のトラブルシューティングAzure App Service 上で動作しているアプリケーションでは、断続的な接続問題によりターゲットサービスへの接続時にエラーが発生することがあります。その問題を特定するためにコードを変更してデプロイするのは手間がかかります。App Service Kudu サイトを使用すれば迅速にテストを行うことができ、その場合コードを変更する必要はありません。
+LinuxKudu サイト（例 : ...
         <p class="article-readmore">
-          <a href="../../2024/03/26/Prevent-crashes-Kudu.html">Read more</a>
+          <a href="../../2024/03/13/Troubleshoot%20intermittent%20connectivity%20issue%20in%20azure%20app%20service.html">Read more</a>
         </p>
       
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2024/03/26/Prevent-crashes-Kudu.html" data-id="cmlahyw9g00c5sx2obuor33yw" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2024/03/13/Troubleshoot%20intermittent%20connectivity%20issue%20in%20azure%20app%20service.html" data-id="cmlg68xw900c5u02o7qte9xsa" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/App-Service/" rel="tag">App Service</a></li></ul>
@@ -171,7 +169,7 @@ Elastic Premium Plan とは関数アプリをホストする上で、3 種類の
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2022/08/09/how-to-check-elastic-premium-plan-function-app-allocated-instance-counts-history.html" data-id="cmlahyw77005nsx2ob7r7aawf" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2022/08/09/how-to-check-elastic-premium-plan-function-app-allocated-instance-counts-history.html" data-id="cmlg68xtv005nu02o3l7x7x86" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Function-App/" rel="tag">Function App</a></li></ul>
@@ -224,7 +222,7 @@ App Service の Node.js のサポートの現状App Service では、Node.js の
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2024/03/13/Managing-Node.js-Minor-Version-in-Windows-App-Service-Without-Hardcoding.html" data-id="cmlahyw9e00c0sx2o0kxkgp9b" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2024/03/13/Managing-Node.js-Minor-Version-in-Windows-App-Service-Without-Hardcoding.html" data-id="cmlg68xw800c2u02oahcgcn19" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/App-Service/" rel="tag">App Service</a></li></ul>
@@ -282,7 +280,7 @@ VNet スコープのイングレス: 内部環境で VNet スコープのイン�
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2024/03/12/DNS%20records%20for%20internal%20container%20app.html" data-id="cmlahyw9d00bvsx2o4nkt9s7u" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2024/03/12/DNS%20records%20for%20internal%20container%20app.html" data-id="cmlg68xw600bvu02oh9w6fxbj" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Container-Apps/" rel="tag">Container Apps</a></li></ul>
@@ -334,7 +332,7 @@ VNet スコープのイングレス: 内部環境で VNet スコープのイン�
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2024/03/13/How-to-get-data-from-storage-via-FW-in-AI-Search.html" data-id="cmlahyw9e00bxsx2og3ngcbbw" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2024/03/13/How-to-get-data-from-storage-via-FW-in-AI-Search.html" data-id="cmlg68xw800c0u02ofs7e37ex" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/AI-Search/" rel="tag">AI Search</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Storage/" rel="tag">Storage</a></li></ul>
@@ -393,7 +391,7 @@ API を用い...
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2024/02/29/Troubleshoot%20Network%20Connectivity%20issues%20using%20Network%20Troubleshooter.html" data-id="cmlahyw9c00bssx2o98gu8rgo" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2024/02/29/Troubleshoot%20Network%20Connectivity%20issues%20using%20Network%20Troubleshooter.html" data-id="cmlg68xw600bsu02o4rqp7ncj" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/App-Service/" rel="tag">App Service</a></li></ul>
@@ -448,7 +446,7 @@ Shared Access Signatures ( SAS ) とはShared Access Signature ( SAS ) とは、
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2024/02/19/Procedure-for-creating-a-Storage-Account-SAS-token.html" data-id="cmlahyw9800bgsx2o0mb49757" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2024/02/19/Procedure-for-creating-a-Storage-Account-SAS-token.html" data-id="cmlg68xw000bbu02o6sm56pyp" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Storage/" rel="tag">Storage</a></li></ul>
@@ -509,7 +507,7 @@ Shared Access Signatures ( SAS ) とはShared Access Signature ( SAS ) とは、
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2024/02/26/Procedure-for-creating-a-Storage-Service-SAS-token.html" data-id="cmlahyw9b00bqsx2odawr0v60" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2024/02/26/Procedure-for-creating-a-Storage-Service-SAS-token.html" data-id="cmlg68xw200biu02od4v21cey" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Storage/" rel="tag">Storage</a></li></ul>
@@ -560,7 +558,7 @@ Event Hubs トリガーは、BLOB コンテナに配置された Event Hubs の�
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2024/02/22/Azure-functions-trigger-and-binding-series-eventhubs.html" data-id="cmlahyw9a00blsx2o117k4ci6" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2024/02/22/Azure-functions-trigger-and-binding-series-eventhubs.html" data-id="cmlg68xw400bnu02o9bqcc1np" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Function-App/" rel="tag">Function App</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E3%83%88%E3%83%AA%E3%82%AC%E3%83%BC%E3%83%BB%E3%83%90%E3%82%A4%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0-%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA/" rel="tag">トリガー・バインディング シリーズ</a></li></ul>
@@ -610,7 +608,7 @@ Event Hubs トリガーは、BLOB コンテナに配置された Event Hubs の�
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2024/02/22/Azure-functions-trigger-and-binding-series-timer.html" data-id="cmlahyw9a00bnsx2oczeggjz9" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2024/02/22/Azure-functions-trigger-and-binding-series-timer.html" data-id="cmlg68xw500bqu02o64jyd5f8" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Function-App/" rel="tag">Function App</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E3%83%88%E3%83%AA%E3%82%AC%E3%83%BC%E3%83%BB%E3%83%90%E3%82%A4%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0-%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA/" rel="tag">トリガー・バインディング シリーズ</a></li></ul>
