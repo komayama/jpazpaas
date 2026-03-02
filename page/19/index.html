@@ -120,7 +120,7 @@ Azure Functions を従量課金プランまたは Premium (Elastic...
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2020/07/29/how-to-restrict-access-to-storage-used-by-azure-functions.html" data-id="cmm32n5vj0027t73x7bt6brr5" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2020/07/29/how-to-restrict-access-to-storage-used-by-azure-functions.html" data-id="cmm8una1l0029uu3x4gqwfdw1" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Function-App/" rel="tag">Function App</a></li></ul>
@@ -173,7 +173,7 @@ Azure Functions を従量課金プランまたは Premium (Elastic...
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2020/07/20/avoid-deleting-resource-group.html" data-id="cmm32n5vh0023t73x2h8g882e" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2020/07/20/avoid-deleting-resource-group.html" data-id="cmm8una1i0023uu3x6zvt7kt5" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/ARM/" rel="tag">ARM</a></li></ul>
@@ -185,15 +185,19 @@ Azure Functions を従量課金プランまたは Premium (Elastic...
 
 
   
-    <article id="post-2021/06/04/usererror-servererror" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2020/06/03/apim-downtime" class="article article-type-post" itemscope itemprop="blogPost">
 
   <div class="article-inner">
     <!-- post date -->
     <div class="article-meta">
-      <a href="../../2021/06/04/usererror-servererror.html" class="article-date">
-  <time datetime="2020-06-03T15:00:00.000Z" itemprop="datePublished">2020-06-04</time>
+      <a href="../../2020/06/03/apim-downtime.html" class="article-date">
+  <time datetime="2020-06-02T15:00:00.000Z" itemprop="datePublished">2020-06-03</time>
 </a>
       
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/apim/">apim</a>
+  </div>
+
     </div>
 
     
@@ -203,7 +207,7 @@ Azure Functions を従量課金プランまたは Premium (Elastic...
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2021/06/04/usererror-servererror.html">Service Bus および Event Hubs の UserError、ServerError について</a>
+      <a class="article-title" href="../../2020/06/03/apim-downtime.html">設定変更やメンテナンスで APIM にダウンタイムは発生するか</a>
     </h1>
   
 
@@ -213,27 +217,20 @@ Azure Functions を従量課金プランまたは Premium (Elastic...
     <!-- post caption -->
     <div class="article-entry" itemprop="articleBody">
       
-        Service Bus や Event Hubs のサーバエラー、ユーザエラーともに、どういった場合に発生しますか？
-回答・サーバエラーについて基本的にはプラットフォーム側で何かあった場合に Event Hubs のサービス側 (Azure プラットフォーム側) で何らかのエラーが発生した場合に生じます。具体的には、以下になります。
-
-メンテナンスによる一過性の状況
-障害による緊急的な状況
-
-・ユーザーエラーについてユーザーエラーはクライアントサイド側で何らかの処理が適切に行われない状況に発生する可能性がございます。具体的には、以下になります。
-
-Service bus や、Event Hubs に接続するアプリケーションで設定する接続文字列が間違っているなど、アプリケーションの構成に問題がある状況
-Service bus や、Event Hubs に接続するアプリケーション内で、例外が発...
+        以下の通り、Developer レベル以外の場合は、基本的にダウンタイムは発生しません。Basic、Standard、Premium レベルの場合、1 ユニットあたり 2 台の仮想マシンで構成されています。また、Consumption レベルの場合は、内部的な実装が他のレベルとは異なり、App Service の仕組み上で稼働しています。これら価格レベルは、各種操作を実行する際、例えば仮想マシンを 1 台ずつ再起動を実施するといったように、APIM サービス全体が影響を受けないよう順次処理が実行され、ダウンタイムが発生しない状況となります。
+ただし、何らかの一時的な問題でリクエストが失敗する可能性は考えられるかと思います。そのため、システムのご要件によっては、クライアント側でリトライの仕組みを導入することを推奨します。
+Developer レベルでは、SLA が提供されていません。1 ユニ...
         <p class="article-readmore">
-          <a href="../../2021/06/04/usererror-servererror.html">Read more</a>
+          <a href="../../2020/06/03/apim-downtime.html">Read more</a>
         </p>
       
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2021/06/04/usererror-servererror.html" data-id="cmm32n5wc003lt73xghq61war" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2020/06/03/apim-downtime.html" data-id="cmm8una1h0021uu3x0vclat0j" class="article-share-link">共有</a-->
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Event-Hubs/" rel="tag">Event Hubs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Service-Bus/" rel="tag">Service Bus</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/API-Management/" rel="tag">API Management</a></li></ul>
 
     </footer>
   </div>
@@ -292,7 +289,7 @@ Japan Azu...
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2020/06/01/about-blog.html" data-id="cmm32n5vf001yt73x4zm103e9" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2020/06/01/about-blog.html" data-id="cmm8una1g001yuu3xdlg07rdv" class="article-share-link">共有</a-->
       
       
     </footer>
@@ -358,7 +355,7 @@ Japan Azu...
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2019/08/22/logicapps-clone-dynamics365-caution.html" data-id="cmm32n5vf001wt73x96tyd5g6" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2019/08/22/logicapps-clone-dynamics365-caution.html" data-id="cmm8una1f001wuu3x1dcr7b6n" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Dynamics-365/" rel="tag">Dynamics 365</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Logic-Apps/" rel="tag">Logic Apps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/MigratedArticle/" rel="tag">MigratedArticle</a></li></ul>
@@ -428,7 +425,7 @@ Japan Azu...
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2018/10/30/webapps-functions-connect-storageaccount.html" data-id="cmm32n5ve001tt73x9cs066a6" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2018/10/30/webapps-functions-connect-storageaccount.html" data-id="cmm8una1e001tuu3x98rhc8m0" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/App-Service/" rel="tag">App Service</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Function-App/" rel="tag">Function App</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/MigratedArticle/" rel="tag">MigratedArticle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Web-Apps/" rel="tag">Web Apps</a></li></ul>
@@ -497,7 +494,7 @@ Japan Azu...
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2018/09/14/functions-appservice-auth.html" data-id="cmm32n5vd001rt73xf11a17tb" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2018/09/14/functions-appservice-auth.html" data-id="cmm8una1d001ruu3x02a98g2w" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/App-Service/" rel="tag">App Service</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Function-App/" rel="tag">Function App</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/MigratedArticle/" rel="tag">MigratedArticle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Web-Apps/" rel="tag">Web Apps</a></li></ul>
@@ -564,7 +561,7 @@ Japan Azu...
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2018/08/29/webapps-functions-network-utils.html" data-id="cmm32n5vc001ot73xhlhneols" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2018/08/29/webapps-functions-network-utils.html" data-id="cmm8una1b001ouu3x7urv4u54" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/App-Service/" rel="tag">App Service</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Function-App/" rel="tag">Function App</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/MigratedArticle/" rel="tag">MigratedArticle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Web-Apps/" rel="tag">Web Apps</a></li></ul>
@@ -633,7 +630,7 @@ Japan Azu...
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2018/08/21/webapp-for-containers-docker-hub-maintenance.html" data-id="cmm32n5vb001mt73x346ehbq6" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2018/08/21/webapp-for-containers-docker-hub-maintenance.html" data-id="cmm8una1a001muu3xh7m935ni" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/App-Service/" rel="tag">App Service</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/MigratedArticle/" rel="tag">MigratedArticle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Web-Apps/" rel="tag">Web Apps</a></li></ul>
@@ -700,7 +697,7 @@ Japan Azu...
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2018/05/30/azure-support-enginner-recruting.html" data-id="cmm32n5va001jt73x0fdh9t09" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2018/05/30/azure-support-enginner-recruting.html" data-id="cmm8una19001juu3xf8y2f5m9" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/MigratedArticle/" rel="tag">MigratedArticle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/etc/" rel="tag">etc</a></li></ul>
@@ -733,10 +730,6 @@ Japan Azu...
           </li>
         
           <li>
-            <a href="../../2024/01/25/backup-search-service.html">AI Search の設定やインデックスデータをバックアップしたい</a>
-          </li>
-        
-          <li>
             <a href="../../2026/01/27/ACS-Email-quota-increase.html">Azure Communication Services Email クォータ緩和について</a>
           </li>
         
@@ -746,6 +739,10 @@ Japan Azu...
         
           <li>
             <a href="../../2025/12/22/How-to-resolve-the-document-key-character-limit-error.html">ドキュメントキー文字数制限エラーの解消法</a>
+          </li>
+        
+          <li>
+            <a href="../../2025/09/08/ACS-Email-Onboarding-FAQ.html">Azure Communication Services メール機能でよく頂くご質問</a>
           </li>
         
       </ul>
@@ -768,7 +765,7 @@ Japan Azu...
   <div class="widget-wrap">
     <h3 class="widget-title">アーカイブ</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/02/">2026 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/01/">2026 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/12/">2025 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/10/">2025 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/09/">2025 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/08/">2025 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/07/">2025 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/05/">2025 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/04/">2025 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/02/">2025 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/12/">2024 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/11/">2024 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/10/">2024 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/08/">2024 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/06/">2024 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/05/">2024 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/04/">2024 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/03/">2024 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/02/">2024 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/12/">2023 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/10/">2023 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/09/">2023 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/07/">2023 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/07/">2022 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/04/">2022 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/12/">2021 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/03/">2021 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/02/">2021 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/01/">2021 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/12/">2020 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/11/">2020 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/10/">2020 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/08/">2020 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/07/">2020 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/06/">2020 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/08/">2019 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/10/">2018 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/09/">2018 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/08/">2018 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/05/">2018 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/04/">2018 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/03/">2018 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/02/">2018 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/01/">2018 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/12/">2017 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/08/">2017 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/04/">2017 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/03/">2017 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/01/">2017 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/12/">2016 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/11/">2016 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/10/">2016 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/09/">2016 / 09</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/03/">2026 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/01/">2026 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/12/">2025 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/09/">2025 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/07/">2025 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/05/">2025 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/04/">2025 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/02/">2025 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/12/">2024 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/09/">2024 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/08/">2024 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/05/">2024 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/04/">2024 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/03/">2024 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/02/">2024 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/12/">2023 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/10/">2023 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/09/">2023 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/07/">2023 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/07/">2022 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/04/">2022 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/12/">2021 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/10/">2021 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/03/">2021 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/02/">2021 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/01/">2021 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/12/">2020 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/11/">2020 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/10/">2020 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/09/">2020 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/08/">2020 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/07/">2020 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/06/">2020 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/08/">2019 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/10/">2018 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/09/">2018 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/08/">2018 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/05/">2018 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/04/">2018 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/03/">2018 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/02/">2018 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/01/">2018 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/12/">2017 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/08/">2017 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/04/">2017 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/03/">2017 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/01/">2017 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/12/">2016 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/11/">2016 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/10/">2016 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/09/">2016 / 09</a></li></ul>
     </div>
   </div>
 

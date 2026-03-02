@@ -81,13 +81,13 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-2023/03/07/Troubleshooting-4xx-and-5xx-Errors-with-Azure-APIM-services-Part-1" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2022/11/28/How-to-use-Kudu-site" class="article article-type-post" itemscope itemprop="blogPost">
 
   <div class="article-inner">
     <!-- post date -->
     <div class="article-meta">
-      <a href="../../2023/03/07/Troubleshooting-4xx-and-5xx-Errors-with-Azure-APIM-services-Part-1.html" class="article-date">
-  <time datetime="2023-03-06T15:00:00.000Z" itemprop="datePublished">2023-03-07</time>
+      <a href="../../2022/11/28/How-to-use-Kudu-site.html" class="article-date">
+  <time datetime="2022-11-27T15:00:00.000Z" itemprop="datePublished">2022-11-28</time>
 </a>
       
     </div>
@@ -99,7 +99,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2023/03/07/Troubleshooting-4xx-and-5xx-Errors-with-Azure-APIM-services-Part-1.html">Azure APIM services の 4xx や 5xx のトラブルシューティング パート 1</a>
+      <a class="article-title" href="../../2022/11/28/How-to-use-Kudu-site.html">Kudu サイトの使い方 (Tips 4 選)</a>
     </h1>
   
 
@@ -109,25 +109,36 @@
     <!-- post caption -->
     <div class="article-entry" itemprop="articleBody">
       
-        このポストは、2021 年 3 月 1 日に投稿された Troubleshooting 4xx and 5xx Errors with Azure APIM services
- の翻訳です。
-パート I - 4xx エラーのトラブルシューティング
+        Kudu は App Service や Functions のさまざまな機能の背後にあるエンジンです。本稿では、 App Service や Functions をご利用いただく上で活用いただけるであろう Kudu が提供する機能を Tips として紹介します。
+目次 
+Kudu へのアクセス方法
+Tips 1. Kudu サイトへのログイン
+Azure Active Directory (AAD) 認証を利用して Kudu サイトへログインする方法
+Basic 認証を利用して Kudu サイトへログインする方法
+
+
+Tips 2. New UI (KuduLite)
+Tips 3. Docker ログのダウンロード
+Docker ログの取得方法
+
+
+Tips 4. TCP Ping を用いた疎通確認
+TCP Ping の実行方法
 
 
 
-API Management は、クライアントサイドからバックエンドの API サービスにリクエストを転送するためのプロキシに他なりません。APIM は、クライアント側からの入力に基づいて、リクエストがバックエンドに到達する前にリクエストの変更や特定の処理ができます。理想的なシナリオでは、APIM 内の API は、バックエンド API からの正しいレスポンス本文と成功のレスポンス コード（通常は 200 OK）を返すことが期待されます。
-リクエストが失敗した場合は、API 呼び出し中に何が失敗していたかというエラーメッセージと失敗のレスポ...
+Kudu へのアクセス方法Kudu サイトへのアク...
         <p class="article-readmore">
-          <a href="../../2023/03/07/Troubleshooting-4xx-and-5xx-Errors-with-Azure-APIM-services-Part-1.html">Read more</a>
+          <a href="../../2022/11/28/How-to-use-Kudu-site.html">Read more</a>
         </p>
       
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2023/03/07/Troubleshooting-4xx-and-5xx-Errors-with-Azure-APIM-services-Part-1.html" data-id="cmm32n5xu007kt73x11z0cdnu" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2022/11/28/How-to-use-Kudu-site.html" data-id="cmm8una3u006buu3x1olzfrfb" class="article-share-link">共有</a-->
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/API-Management/" rel="tag">API Management</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Azure-App-Service/" rel="tag">Azure App Service</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Azure-Functions/" rel="tag">Azure Functions</a></li></ul>
 
     </footer>
   </div>
@@ -136,13 +147,13 @@ API Management は、クライアントサイドからバックエンドの API 
 
 
   
-    <article id="post-2023/02/21/Use-AzureFrontDoor-to-restrict-access-to-StorageAccounts-to-HTTP-Headers" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2022/11/15/PHP7.4_EoL" class="article article-type-post" itemscope itemprop="blogPost">
 
   <div class="article-inner">
     <!-- post date -->
     <div class="article-meta">
-      <a href="../../2023/02/21/Use-AzureFrontDoor-to-restrict-access-to-StorageAccounts-to-HTTP-Headers.html" class="article-date">
-  <time datetime="2023-02-16T15:00:00.000Z" itemprop="datePublished">2023-02-17</time>
+      <a href="../../2022/11/15/PHP7.4_EoL.html" class="article-date">
+  <time datetime="2022-11-14T15:00:00.000Z" itemprop="datePublished">2022-11-15</time>
 </a>
       
     </div>
@@ -154,7 +165,7 @@ API Management は、クライアントサイドからバックエンドの API 
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2023/02/21/Use-AzureFrontDoor-to-restrict-access-to-StorageAccounts-to-HTTP-Headers.html">ストレージへのアクセスを特定の Http Header の有無で制限する(Azure Front Door 連携)</a>
+      <a class="article-title" href="../../2022/11/15/PHP7.4_EoL.html">PHP 7.4 のサポートは 2022 年 11 月 28 日で終了します</a>
     </h1>
   
 
@@ -164,119 +175,20 @@ API Management は、クライアントサイドからバックエンドの API 
     <!-- post caption -->
     <div class="article-entry" itemprop="articleBody">
       
-        お世話になっております。PaaS Dev サポート担当の李です。
-Azure ストレージアカウントではネットワーク設定機能を用いてファイアウォールで特定のIPアドレスやVNETでアクセスを制限することができ、若しくはパブリックアクセスを全て無効にしてプライベート エンドポイントでのアクセス制限を構成することも可能です。・Azure Storage ファイアウォールおよび仮想ネットワークを構成する・Azure Storage のプライベート エンドポイントを使用する
-本記事では、これらのアクセス制御方法以外に、特定の Http Header を含めた(若しくは含めてない)リクエストを制限することでアクセス制御を行う方法について紹介いたします。但し現時点で Azure Storage 単体では 特定の Http Header をチェックする機能がないため、Azure Front Door を組...
+        お世話になっております。App Service サポート担当の東方です。
+PHP 7.4 のサポート終了が近づいておりますので、よく頂戴するご不明点にお答えしたく本記事を作成いたしました。
+みなさまのご不明点の解消に役立てましたら幸いです。
+PHP 7.4 のサポートが 2022 年 11 月 28 日で終了しますが、サポート終了前にサポートされている PHP (8.0 以降) に更新しないと、アプリケーションが動作しなくなるのでしょうか。
+回答いいえ、PHP 7.4 のサポート終了後も、PHP 7.4 でアプリケーションを動作し続けることができます。
+ただし、PHP7.4 のバイナリは一定の猶予期間後に提供が終了すると共に、PHP7.4 の提供が終了する時期は恐縮ながら未定となっております。サポート終了後には PHP に対するセキュリティパッチのサポート等を受けることはできませんので、お...
         <p class="article-readmore">
-          <a href="../../2023/02/21/Use-AzureFrontDoor-to-restrict-access-to-StorageAccounts-to-HTTP-Headers.html">Read more</a>
+          <a href="../../2022/11/15/PHP7.4_EoL.html">Read more</a>
         </p>
       
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2023/02/21/Use-AzureFrontDoor-to-restrict-access-to-StorageAccounts-to-HTTP-Headers.html" data-id="cmm32n5xo007at73xdp7zgcur" class="article-share-link">共有</a-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Storage/" rel="tag">Storage</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2023/02/16/Routine-Planned-Maintenance-Notifications-for-Azure-App-Service" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <div class="article-inner">
-    <!-- post date -->
-    <div class="article-meta">
-      <a href="../../2023/02/16/Routine-Planned-Maintenance-Notifications-for-Azure-App-Service.html" class="article-date">
-  <time datetime="2023-02-15T15:00:00.000Z" itemprop="datePublished">2023-02-16</time>
-</a>
-      
-    </div>
-
-    
-    <!-- post title -->
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2023/02/16/Routine-Planned-Maintenance-Notifications-for-Azure-App-Service.html">Azure App Service の計画メンテナンスの事前通知</a>
-    </h1>
-  
-
-      </header>
-    
-
-    <!-- post caption -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        本記事は 2022 年 2 月 1 日に公開されました Routine Planned Maintenance Notifications for Azure App Service の日本語訳です。(現在の内容に合わせて一部変更を行っています。)
-App Service は、新しい機能、新しいランタイムバージョン、パフォーマンスの改善、および不具合修正のために定期的に更新されます。お客様から頂戴しますご要望の 1 つにプラットフォームの更新が発生する前に通知を受け取ることができる機能がございました。このたび、2022 年 3 月上旬より、App Service Environments V3 (ASE v3) およびマルチテナントで動作するアプリケーション (App Service / 関数アプリ 等) を対象として、App Service の計画メンテナンスの事前通知がご利用いただける...
-        <p class="article-readmore">
-          <a href="../../2023/02/16/Routine-Planned-Maintenance-Notifications-for-Azure-App-Service.html">Read more</a>
-        </p>
-      
-    </div>
-
-    <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2023/02/16/Routine-Planned-Maintenance-Notifications-for-Azure-App-Service.html" data-id="cmm32n5xn0077t73x7fyjhcdu" class="article-share-link">共有</a-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/App-Service/" rel="tag">App Service</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/App-Service-Environment/" rel="tag">App Service Environment</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Function-App/" rel="tag">Function App</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Web-Apps/" rel="tag">Web Apps</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2023/02/15/Docker-User-Namespace-remapping-issues" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <div class="article-inner">
-    <!-- post date -->
-    <div class="article-meta">
-      <a href="../../2023/02/15/Docker-User-Namespace-remapping-issues.html" class="article-date">
-  <time datetime="2023-02-14T15:00:00.000Z" itemprop="datePublished">2023-02-15</time>
-</a>
-      
-    </div>
-
-    
-    <!-- post title -->
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2023/02/15/Docker-User-Namespace-remapping-issues.html">App Service における Docker User Namespace remapping issues について</a>
-    </h1>
-  
-
-      </header>
-    
-
-    <!-- post caption -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        お世話になっております。App Service サポート担当の押田です。
-本記事は 2022 年 6 月 30 日に公開されました Docker User Namespace remapping issues の日本語訳です。翻訳内容には細心の注意を払っておりますが、もし原文内容と齟齬がある場合は、原文の内容を優先くださいませ。
-<!--
-Docker has a concept of **User namespace** and **User namespace remapping** (Otherwise known as `userns`). When this is used, this remaps users in the container to less privileged users on the host machine. 
-
-Sometimes, a user ma...
-        <p class="article-readmore">
-          <a href="../../2023/02/15/Docker-User-Namespace-remapping-issues.html">Read more</a>
-        </p>
-      
-    </div>
-
-    <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2023/02/15/Docker-User-Namespace-remapping-issues.html" data-id="cmm32n5xl0073t73x42waa83v" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2022/11/15/PHP7.4_EoL.html" data-id="cmm8una3t0069uu3x3bgp5g4d" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/App-Service/" rel="tag">App Service</a></li></ul>
@@ -288,13 +200,13 @@ Sometimes, a user ma...
 
 
   
-    <article id="post-2023/01/20/Static-web-apps-how-to-restrict-access" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2022/10/28/Developing-Powershell-script-on-Azure-Functions" class="article article-type-post" itemscope itemprop="blogPost">
 
   <div class="article-inner">
     <!-- post date -->
     <div class="article-meta">
-      <a href="../../2023/01/20/Static-web-apps-how-to-restrict-access.html" class="article-date">
-  <time datetime="2023-01-19T15:00:00.000Z" itemprop="datePublished">2023-01-20</time>
+      <a href="../../2022/10/28/Developing-Powershell-script-on-Azure-Functions.html" class="article-date">
+  <time datetime="2022-10-27T15:00:00.000Z" itemprop="datePublished">2022-10-28</time>
 </a>
       
     </div>
@@ -306,7 +218,7 @@ Sometimes, a user ma...
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2023/01/20/Static-web-apps-how-to-restrict-access.html">Static Web Apps におけるネットワークアクセス制限について</a>
+      <a class="article-title" href="../../2022/10/28/Developing-Powershell-script-on-Azure-Functions.html">任意のPowerShellモジュールを利用したAzure Functions の環境構築ガイド</a>
     </h1>
   
 
@@ -316,26 +228,28 @@ Sometimes, a user ma...
     <!-- post caption -->
     <div class="article-entry" itemprop="articleBody">
       
-        お世話になっております。App Service サポート担当の押田です。
-本記事では Azure Static Web Apps におけるネットワーク構成によるアクセス制限についてご紹介致します。
-なお、本記事ではネットワーク構成によるアクセス制限について記載し、ユーザによる 認証と認可 についてのアクセス制限については触れません。
-Static Web Apps におけるネットワークアクセス制限方法Static Web Apps においてアクセス制限を行う方法として、以下 2 つの方法があり、組み合わせて利用することも可能となっています。
+        PowerShellモジュールを利用して Azure Functions から Azure 上のリソースへアクセスを行いたい。
+回答以下に Azure Functions から特定のリソース グループの LogicApps リソース一覧を参照する場合の環境構築手順例を示します。
+構築手順
+任意のプランで Azure Functions と LogicApps を作成します。今回は Azure Functions の従量課金プランと Logic Apps の消費プランを作成します。
 
-プライベート エンドポイントを利用する方法
-staticwebapp.config.jsonの networking.allowedIpRanges　を利用する方法
+任意の関数アプリを作成します。今回は HTTP トリガーを作成します。
 
-1. プライベートエンドポイントを利用する方法Static Web Apps にプ...
+
+
+
+PowerShell にて利用する依存モジュールを宣言します。Azure Functions の PowerShell では、以下にご案内がございますように requirements.psd1 にて依存モジュールを宣言するかモジュー...
         <p class="article-readmore">
-          <a href="../../2023/01/20/Static-web-apps-how-to-restrict-access.html">Read more</a>
+          <a href="../../2022/10/28/Developing-Powershell-script-on-Azure-Functions.html">Read more</a>
         </p>
       
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2023/01/20/Static-web-apps-how-to-restrict-access.html" data-id="cmm32n5xk006yt73x5i3ufwsx" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2022/10/28/Developing-Powershell-script-on-Azure-Functions.html" data-id="cmm8una3s0066uu3x6pqt4ckw" class="article-share-link">共有</a-->
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Static-Web-Apps/" rel="tag">Static Web Apps</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Function-App/" rel="tag">Function App</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li></ul>
 
     </footer>
   </div>
@@ -344,13 +258,13 @@ staticwebapp.config.jsonの networking.allowedIpRanges　を利用する方法
 
 
   
-    <article id="post-2023/01/19/How-to-display-ARM-account-on-VI-portal" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2022/10/18/2022-05-07-ASEv3%20VS%20ASEv2%20-%20Difference%20Overview%20(in%20Japanese)" class="article article-type-post" itemscope itemprop="blogPost">
 
   <div class="article-inner">
     <!-- post date -->
     <div class="article-meta">
-      <a href="../../2023/01/19/How-to-display-ARM-account-on-VI-portal.html" class="article-date">
-  <time datetime="2023-01-18T15:00:00.000Z" itemprop="datePublished">2023-01-19</time>
+      <a href="../../2022/10/18/2022-05-07-ASEv3%20VS%20ASEv2%20-%20Difference%20Overview%20(in%20Japanese).html" class="article-date">
+  <time datetime="2022-10-17T15:00:00.000Z" itemprop="datePublished">2022-10-18</time>
 </a>
       
     </div>
@@ -362,7 +276,7 @@ staticwebapp.config.jsonの networking.allowedIpRanges　を利用する方法
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2023/01/19/How-to-display-ARM-account-on-VI-portal.html">ARM ベースのアカウントを Azure Video Indexer ポータルで表示させる方法</a>
+      <a class="article-title" href="../../2022/10/18/2022-05-07-ASEv3%20VS%20ASEv2%20-%20Difference%20Overview%20(in%20Japanese).html">ASEv3 VS ASEv2 - Difference Overview (日本語訳版)</a>
     </h1>
   
 
@@ -372,30 +286,20 @@ staticwebapp.config.jsonの networking.allowedIpRanges　を利用する方法
     <!-- post caption -->
     <div class="article-entry" itemprop="articleBody">
       
-        ARM ベースの Video Indexer アカウントを作成しましたが、Video Indexer ポータル上に該当アカウントが表示されません。どのようにすれば表示されますでしょうか？
-回答上記事象の原因として、下記の 2 点が考えられます。
-
-Video Indexer ポータルにアクセスしたユーザーが、前提条件を満たせていないため
-異なるテナントのユーザーから、Video Indexer ポータルにログインしているため
-
-下記にて各項目ごとにご案内いたします。
-Video Indexer のアカウントについて各項目をご案内する前に、Video Indexer のアカウントについてご紹介いたします。
-Video Indexer では、大きく下記の 3 つのアカウントがございます。
-
-試用版アカウント
-無制限アカウント（ARM ベースのアカウント）
-無制限アカウント（クラシックアカウント...
+        App Service Environment (以下、 ASE) の導入をご検討いただいているお客様より、 ASEv2 と ASEv3 の主な違いについてご質問をいただくことがございます。以下の弊社エンジニアが執筆した記事に情報がよくまとまっておりますため、ご案内の際に参考情報としてご紹介差し上げることがございますが、 2022 年 5 月現在では英語表記のみとなっております。
+App Service environment difference, ASEv3 VS ASEv2https://techcommunity.microsoft.com/t5/apps-on-azure-blog/asev3-vs-asev2-difference-overview/ba-p/3276225
+そのため、上記記事の日本語訳版 (一部意訳を含む) を以下に掲載いたします。少しでもご参考になれば幸いで...
         <p class="article-readmore">
-          <a href="../../2023/01/19/How-to-display-ARM-account-on-VI-portal.html">Read more</a>
+          <a href="../../2022/10/18/2022-05-07-ASEv3%20VS%20ASEv2%20-%20Difference%20Overview%20(in%20Japanese).html">Read more</a>
         </p>
       
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2023/01/19/How-to-display-ARM-account-on-VI-portal.html" data-id="cmm32n5xj006vt73xcvcrhptq" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2022/10/18/2022-05-07-ASEv3%20VS%20ASEv2%20-%20Difference%20Overview%20(in%20Japanese).html" data-id="cmm8una3r0064uu3xete923lf" class="article-share-link">共有</a-->
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Azure-Media-Services/" rel="tag">Azure Media Services</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Azure-Video-Indexer/" rel="tag">Azure Video Indexer</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/App-Service-Environment/" rel="tag">App Service Environment</a></li></ul>
 
     </footer>
   </div>
@@ -404,13 +308,13 @@ Video Indexer では、大きく下記の 3 つのアカウントがございま
 
 
   
-    <article id="post-2023/01/18/How-To-Move-Diagnostics-logs-to-Archive-tier" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2022/09/26/2022-09-22-How-to-check-IP-address-of-access-error" class="article article-type-post" itemscope itemprop="blogPost">
 
   <div class="article-inner">
     <!-- post date -->
     <div class="article-meta">
-      <a href="../../2023/01/18/How-To-Move-Diagnostics-logs-to-Archive-tier.html" class="article-date">
-  <time datetime="2023-01-15T15:00:00.000Z" itemprop="datePublished">2023-01-16</time>
+      <a href="../../2022/09/26/2022-09-22-How-to-check-IP-address-of-access-error.html" class="article-date">
+  <time datetime="2022-09-25T15:00:00.000Z" itemprop="datePublished">2022-09-26</time>
 </a>
       
     </div>
@@ -422,7 +326,7 @@ Video Indexer では、大きく下記の 3 つのアカウントがございま
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2023/01/18/How-To-Move-Diagnostics-logs-to-Archive-tier.html">診断設定のログ (追加 BLOB) をアーカイブ層に移動する方法</a>
+      <a class="article-title" href="../../2022/09/26/2022-09-22-How-to-check-IP-address-of-access-error.html">Request ID を基に Storage へのアクセス失敗を調べる方法</a>
     </h1>
   
 
@@ -432,22 +336,18 @@ Video Indexer では、大きく下記の 3 つのアカウントがございま
     <!-- post caption -->
     <div class="article-entry" itemprop="articleBody">
       
-        
-保管コスト削減のため、診断設定のログをアーカイブ層に移動したいのですが、移動できません。
+        • はじめに• クライアント IP アドレスを確認する方法• ファイアウォールの設定• 3行要約
+はじめに「Storage にアクセスしたら、403 のエラーでアクセスが拒否される」というお問い合わせをいただき、調べてみたら Storage Account のファイアウォールの設定で許可してない IP アドレスからのアクセスだったということが時々ございます。この際、上記の写真のように要求 ID などが確認出来れば、プラットフォームのログから Storage Account にとってのクライアント IP アドレスが何になるか知ることが出来ます。以下では、このクライアント IP アドレスを確認する方法と、ファイアウォールの設定についてご紹介いたします。
 
-
-回答前提Azure Monitor の機能である診断設定によって収集されるログは、出力の宛先の一つとしてストレージ アカウントに出力いただくことが可能です。その際、出力されるログの BLOB は「追加 BLOB」となります。
-Azure Monitor リソース ログの形式変更のための準備 - Azure Monitor | Microsoft Learnhttps://learn.microsoft.com/ja-JP/azure/azure-monitor/essentials/resource-logs-blob-format
-
-この新しい形式では、Azure Monitor で追加 BLOB を使用してログ ファイルをプッシュすることができ、継続的に新しいイベント データを追加する場合に...
+クライアント IP アドレスを確認する方法診断設定を利用し、このアクセスが Storage Account にとってどんなアクセスになるかを...
         <p class="article-readmore">
-          <a href="../../2023/01/18/How-To-Move-Diagnostics-logs-to-Archive-tier.html">Read more</a>
+          <a href="../../2022/09/26/2022-09-22-How-to-check-IP-address-of-access-error.html">Read more</a>
         </p>
       
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2023/01/18/How-To-Move-Diagnostics-logs-to-Archive-tier.html" data-id="cmm32n5xi006tt73xcvbeawg0" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2022/09/26/2022-09-22-How-to-check-IP-address-of-access-error.html" data-id="cmm8una3p0061uu3x46d22hhj" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Storage/" rel="tag">Storage</a></li></ul>
@@ -459,13 +359,13 @@ Azure Monitor リソース ログの形式変更のための準備 - Azure Monit
 
 
   
-    <article id="post-2023/03/07/Debug-JWT-validation-on-APIM" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2022/09/16/How-to-import-ASC-to-AppGW" class="article article-type-post" itemscope itemprop="blogPost">
 
   <div class="article-inner">
     <!-- post date -->
     <div class="article-meta">
-      <a href="../../2023/03/07/Debug-JWT-validation-on-APIM.html" class="article-date">
-  <time datetime="2023-01-02T15:00:00.000Z" itemprop="datePublished">2023-01-03</time>
+      <a href="../../2022/09/16/How-to-import-ASC-to-AppGW.html" class="article-date">
+  <time datetime="2022-09-15T15:00:00.000Z" itemprop="datePublished">2022-09-16</time>
 </a>
       
     </div>
@@ -477,7 +377,7 @@ Azure Monitor リソース ログの形式変更のための準備 - Azure Monit
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2023/03/07/Debug-JWT-validation-on-APIM.html">HTTP リクエストを利用して Azure Active Directory からアクセストークンを発行して、APIM で JWT 検証を実行する</a>
+      <a class="article-title" href="../../2022/09/16/How-to-import-ASC-to-AppGW.html">Application Gateway のリスナーに Key Vault に格納された App Service 証明書を表示させる方法</a>
     </h1>
   
 
@@ -487,20 +387,21 @@ Azure Monitor リソース ログの形式変更のための準備 - Azure Monit
     <!-- post caption -->
     <div class="article-entry" itemprop="articleBody">
       
-        なりすましや改ざん防止のため、JWT 検証を導入しています。デバッグのため、HTTP リクエストを利用して Azure Active Directory からクライアント資格情報フローでアクセストークンを発行して、APIM で JWT 検証を実行したいです。
-回答API Management では、OAuth 2.0 プロトコルと Azure Active Directory (Azure AD) を使用して、API を保護できます。OAuth 2.0 承認と Azure Active Directory を使用して Azure API Management で API を保護する
-OAuth 2.0 ではアクセス トークンを取得するための承認フローが定義されています。The OAuth 2.0 Authorization Framework各承認フローの一般的なユースケースは以下の通りで...
+        App Service 証明書をエクスポートする手順が以下の記事で紹介されており、エクスポートされた証明書は Application Gateway などで利用することが可能となっております。
+参考 : App service 証明書をエクスポートしてパスワードを設定し、他の Azure サービスにインポートする方法 - Japan PaaS Support Team Blog
+上記の記事とは別の方法として、 2022 年 9 月現在、Application Gateway SKU v2 をご利用いただくことで Key Vault に格納された App Service 証明書をエクスポートせずに Application Gateway に直接紐づけることが可能となっております。
+Application Gateway と App Service 証明書を直接紐づけることにより、Applic...
         <p class="article-readmore">
-          <a href="../../2023/03/07/Debug-JWT-validation-on-APIM.html">Read more</a>
+          <a href="../../2022/09/16/How-to-import-ASC-to-AppGW.html">Read more</a>
         </p>
       
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2023/03/07/Debug-JWT-validation-on-APIM.html" data-id="cmm32n5xq007ft73x2kdpfn85" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2022/09/16/How-to-import-ASC-to-AppGW.html" data-id="cmm8una3l005zuu3xbqkq7e6s" class="article-share-link">共有</a-->
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/API-Management/" rel="tag">API Management</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/App-Service-%E8%A8%BC%E6%98%8E%E6%9B%B8/" rel="tag">App Service 証明書</a></li></ul>
 
     </footer>
   </div>
@@ -509,13 +410,13 @@ OAuth 2.0 ではアクセス トークンを取得するための承認フロー
 
 
   
-    <article id="post-2022/12/29/Alternative-for-using-HttpPlatformHandler-in-Java-app" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2022/09/12/2022-09-09-Types-of-BLOB-for-Lifecycle-Management" class="article article-type-post" itemscope itemprop="blogPost">
 
   <div class="article-inner">
     <!-- post date -->
     <div class="article-meta">
-      <a href="../../2022/12/29/Alternative-for-using-HttpPlatformHandler-in-Java-app.html" class="article-date">
-  <time datetime="2022-12-28T15:00:00.000Z" itemprop="datePublished">2022-12-29</time>
+      <a href="../../2022/09/12/2022-09-09-Types-of-BLOB-for-Lifecycle-Management.html" class="article-date">
+  <time datetime="2022-09-11T15:00:00.000Z" itemprop="datePublished">2022-09-12</time>
 </a>
       
     </div>
@@ -527,7 +428,7 @@ OAuth 2.0 ではアクセス トークンを取得するための承認フロー
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2022/12/29/Alternative-for-using-HttpPlatformHandler-in-Java-app.html">App Service (Windows/Java) で httpPlatformHandler をカスタマイズする際の代替案 </a>
+      <a class="article-title" href="../../2022/09/12/2022-09-09-Types-of-BLOB-for-Lifecycle-Management.html">ライフサイクル管理を設定する際の Blob の種類について</a>
     </h1>
   
 
@@ -537,19 +438,23 @@ OAuth 2.0 ではアクセス トークンを取得するための承認フロー
     <!-- post caption -->
     <div class="article-entry" itemprop="articleBody">
       
-        お世話になっております。App Service サポート担当の谷津です。
-Windows の Java スタックにおける App Service にて Tomcat の設定変更を目的として IIS モジュールである HttpPlatformHandler の定義を web.config に設定しているリソースに関するお問い合わせを頂戴することがございます。しかしながら、PaaS である App Service が提供している HttpPlatformHandler ではなく独自で web.config に HttpPlatformHandler の定義を追加されますと、アプリケーションの起動処理に失敗するような予期せぬ影響を及ぼす可能性がございます。このように PaaS 基盤のモジュールである HttpPlatformHandler を差し替えるようなカスタマイズは恐縮ながら推奨されません...
+        #目次• はじめに• 自動でログを削除するライフサイクル管理ポリシーの作成方法• 作成したライフサイクル管理ポリシーの確認方法• まとめ• 3行要約
+#はじめに　   Azure Monitor の出力するログ（以下の写真参照、[insights-logs-XXXX] ）を一定期間が経った後に消すために Azure Storage の Blob のライフサイクル管理の規則を入れたけれど、想定していた通りに消えないというお問い合わせをいただくことが時々あります。
+
+
+
+   このログは、診断設定で [他のストレージ アカウントに保存する] を選択したため出力される、対象アカウント（ここでは、「satest0829」）のログです。下記のスクリーンショットでは、「satest0829」 ストレージ アカウントの読み取り、上書き、削除のログを 「r40904mon」 ストレージ アカウントに出力さ...
         <p class="article-readmore">
-          <a href="../../2022/12/29/Alternative-for-using-HttpPlatformHandler-in-Java-app.html">Read more</a>
+          <a href="../../2022/09/12/2022-09-09-Types-of-BLOB-for-Lifecycle-Management.html">Read more</a>
         </p>
       
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2022/12/29/Alternative-for-using-HttpPlatformHandler-in-Java-app.html" data-id="cmm32n5xh006qt73x2bx902ts" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2022/09/12/2022-09-09-Types-of-BLOB-for-Lifecycle-Management.html" data-id="cmm8una3k005wuu3x49eneygs" class="article-share-link">共有</a-->
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/App-Service-Web-Apps-Java/" rel="tag">App Service, Web Apps, Java</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E5%B1%A5%E6%AD%B4/" rel="tag">デプロイ履歴</a></li></ul>
 
     </footer>
   </div>
@@ -558,13 +463,13 @@ Windows の Java スタックにおける App Service にて Tomcat の設定変
 
 
   
-    <article id="post-2022/12/16/How-to-change-TIMEZONE-in-AppService-logs" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2022/09/09/2022-09-08-BLOB-public-access" class="article article-type-post" itemscope itemprop="blogPost">
 
   <div class="article-inner">
     <!-- post date -->
     <div class="article-meta">
-      <a href="../../2022/12/16/How-to-change-TIMEZONE-in-AppService-logs.html" class="article-date">
-  <time datetime="2022-12-19T15:00:00.000Z" itemprop="datePublished">2022-12-20</time>
+      <a href="../../2022/09/09/2022-09-08-BLOB-public-access.html" class="article-date">
+  <time datetime="2022-09-08T15:00:00.000Z" itemprop="datePublished">2022-09-09</time>
 </a>
       
     </div>
@@ -576,7 +481,7 @@ Windows の Java スタックにおける App Service にて Tomcat の設定変
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2022/12/16/How-to-change-TIMEZONE-in-AppService-logs.html">App Service の組み込みの診断機能により出力されるログのタイムゾーンを現地時間で出力したい</a>
+      <a class="article-title" href="../../2022/09/09/2022-09-08-BLOB-public-access.html">BLOB 匿名 アクセスを有効・無効にする</a>
     </h1>
   
 
@@ -586,33 +491,151 @@ Windows の Java スタックにおける App Service にて Tomcat の設定変
     <!-- post caption -->
     <div class="article-entry" itemprop="articleBody">
       
-        App Service の組み込みの診断機能により出力される以下ログのタイムゾーンを UTC から JST (現地時刻) で出力したい
+        目次• 背景
+• BLOB 匿名 アクセス
+• アカウント レベルとコンテナー レベルでの匿名 アクセス
+• 匿名 アクセス設定方法
+• パブリック ネットワーク アクセス
+• よくある誤解
+• 3 行要約
 
-アプリケーションのログ
-Web サーバーのログ
-詳細なエラー メッセージ
-失敗した要求トレース
-デプロイ ログ
 
-診断ログ一覧
-回答現時点では App Service の組み込みの診断機能の診断ログ (Web サーバー ログ など) を現地時間で出力するといった機能はご提供がございません。ワークアラウンドとして以下 2 点をご提案いたします。
 
-a ) Log Analytics を使用して診断ログを表示する際のタイムゾーンを現地時間に変更する
-b ) 診断ログの代わりに、お客様のアプリケーション内で独自にログを出力する
+背景   Blob Storage には、以下の3 種類のリソースがあります。
+i. ストレージ アカウント
+ii. ストレージ アカウント内のコンテナー
+iii. コンテナー内のBLOB
 
-以下、それぞれ順にご紹介いたします。ご要件に合わせてご検討いただければ幸いです。
-a ) Log Analytics を使用して診断...
+
+ ストレージ アカウントにおいて混同されがちな設定として、BLOB 匿名 アクセスと、パブリック ネットワーク アクセスがあります。前者は認証・承認に関連し、後者はネットワークの経路に関連します。両方ともセキュリティに関する設定ですが、それぞれ独立した設定となります。下記ではそれぞれの設定について説明いたします。
+(注) BLOB 匿名アクセスの設定は以前は BLOB パブリックアクセスと...
         <p class="article-readmore">
-          <a href="../../2022/12/16/How-to-change-TIMEZONE-in-AppService-logs.html">Read more</a>
+          <a href="../../2022/09/09/2022-09-08-BLOB-public-access.html">Read more</a>
         </p>
       
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2022/12/16/How-to-change-TIMEZONE-in-AppService-logs.html" data-id="cmm32n5xe006jt73xgrfbakcj" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2022/09/09/2022-09-08-BLOB-public-access.html" data-id="cmm8una3j005uuu3xh6v9esen" class="article-share-link">共有</a-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Storage/" rel="tag">Storage</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2022/09/06/RBAC-custom-role-with-minimum-permissions" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <div class="article-inner">
+    <!-- post date -->
+    <div class="article-meta">
+      <a href="../../2022/09/06/RBAC-custom-role-with-minimum-permissions.html" class="article-date">
+  <time datetime="2022-09-05T15:00:00.000Z" itemprop="datePublished">2022-09-06</time>
+</a>
+      
+    </div>
+
+    
+    <!-- post title -->
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2022/09/06/RBAC-custom-role-with-minimum-permissions.html">アクセス制御 (IAM) で App Service の操作に必要な最低限の権限を付与する</a>
+    </h1>
+  
+
+      </header>
+    
+
+    <!-- post caption -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        App Service でスケールイン/アウトやデプロイなどの操作に必要な最低限の権限をユーザーに付与したい。どのように設定すればよいでしょうか。
+回答アクセス制御 (IAM) の概要アクセス制御 (IAM) の機能では、ユーザー、グループ、サービス プリンシパル、またはマネージド ID に、特定のスコープでロールを割り当てることができます。ロールには、対象のリソースに対して読み取り、書き込み、削除などを実行するアクセス許可が設定されています。
+
+スコープアクセス許可が適用されるリソースのセットを設定できます。これをスコープと呼びます。Azure では、範囲の広いものから順に、管理グループ、サブスクリプション、リソース グループ、リソースの 4 つのレベルでスコープを指定できます。 
+ロール読み取り、書き込み、削除などの実行できるアクセス許可のコレクションを設定することができます。これをロ...
+        <p class="article-readmore">
+          <a href="../../2022/09/06/RBAC-custom-role-with-minimum-permissions.html">Read more</a>
+        </p>
+      
+    </div>
+
+    <footer class="article-footer">
+      <!--a data-url="https://komayama.github.io/jpazpaas/2022/09/06/RBAC-custom-role-with-minimum-permissions.html" data-id="cmm8una3i005suu3xfz4w3tak" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/App-Service/" rel="tag">App Service</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2022/08/26/2022-08-25-App-Service-Certificate-Renewal" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <div class="article-inner">
+    <!-- post date -->
+    <div class="article-meta">
+      <a href="../../2022/08/26/2022-08-25-App-Service-Certificate-Renewal.html" class="article-date">
+  <time datetime="2022-08-25T15:00:00.000Z" itemprop="datePublished">2022-08-26</time>
+</a>
+      
+    </div>
+
+    
+    <!-- post title -->
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2022/08/26/2022-08-25-App-Service-Certificate-Renewal.html">App Service 証明書の自動更新に伴うドメイン検証 (有効期間 395 日) 作業の必要について</a>
+    </h1>
+  
+
+      </header>
+    
+
+    <!-- post caption -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        2021 年 9 月 23 日より、 App Service 証明書では過去 395 日以内にドメイン検証を行っていない場合、App Service 証明書の更新の際にドメイン検証が必要となりました。
+これにより、App Service 証明書の自動更新をオンにしていても、定期的にお客様にてドメインの検証作業を行っていいただく必要があります。
+この記事では、App Service 証明書を継続的に利用される際に必要な “更新” と “検証” 作業の方法およびそれらを実施いただける期間についてご紹介します。
+
+
+
+
+実施いただく必要がある作業
+背景
+想定される事象
+App Service 証明書の更新およびドメイン検証を実施できる期間の例
+参考ドキュメント
+Appendix : 検証方法について 
+
+
+
+実施いただく必要がある作業App Service 証明書の更新時、前回のドメイン検証の有...
+        <p class="article-readmore">
+          <a href="../../2022/08/26/2022-08-25-App-Service-Certificate-Renewal.html">Read more</a>
+        </p>
+      
+    </div>
+
+    <footer class="article-footer">
+      <!--a data-url="https://komayama.github.io/jpazpaas/2022/08/26/2022-08-25-App-Service-Certificate-Renewal.html" data-id="cmm8una3h005puu3x77hm6nft" class="article-share-link">共有</a-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/App-Service-%E8%A8%BC%E6%98%8E%E6%9B%B8/" rel="tag">App Service 証明書</a></li></ul>
 
     </footer>
   </div>
@@ -642,10 +665,6 @@ a ) Log Analytics を使用して診断...
           </li>
         
           <li>
-            <a href="../../2024/01/25/backup-search-service.html">AI Search の設定やインデックスデータをバックアップしたい</a>
-          </li>
-        
-          <li>
             <a href="../../2026/01/27/ACS-Email-quota-increase.html">Azure Communication Services Email クォータ緩和について</a>
           </li>
         
@@ -655,6 +674,10 @@ a ) Log Analytics を使用して診断...
         
           <li>
             <a href="../../2025/12/22/How-to-resolve-the-document-key-character-limit-error.html">ドキュメントキー文字数制限エラーの解消法</a>
+          </li>
+        
+          <li>
+            <a href="../../2025/09/08/ACS-Email-Onboarding-FAQ.html">Azure Communication Services メール機能でよく頂くご質問</a>
           </li>
         
       </ul>
@@ -677,7 +700,7 @@ a ) Log Analytics を使用して診断...
   <div class="widget-wrap">
     <h3 class="widget-title">アーカイブ</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/02/">2026 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/01/">2026 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/12/">2025 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/10/">2025 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/09/">2025 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/08/">2025 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/07/">2025 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/05/">2025 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/04/">2025 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/02/">2025 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/12/">2024 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/11/">2024 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/10/">2024 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/08/">2024 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/06/">2024 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/05/">2024 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/04/">2024 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/03/">2024 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/02/">2024 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/12/">2023 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/10/">2023 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/09/">2023 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/07/">2023 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/07/">2022 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/04/">2022 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/12/">2021 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/03/">2021 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/02/">2021 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/01/">2021 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/12/">2020 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/11/">2020 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/10/">2020 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/08/">2020 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/07/">2020 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/06/">2020 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/08/">2019 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/10/">2018 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/09/">2018 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/08/">2018 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/05/">2018 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/04/">2018 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/03/">2018 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/02/">2018 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/01/">2018 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/12/">2017 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/08/">2017 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/04/">2017 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/03/">2017 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/01/">2017 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/12/">2016 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/11/">2016 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/10/">2016 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/09/">2016 / 09</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/03/">2026 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/01/">2026 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/12/">2025 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/09/">2025 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/07/">2025 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/05/">2025 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/04/">2025 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/02/">2025 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/12/">2024 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/09/">2024 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/08/">2024 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/05/">2024 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/04/">2024 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/03/">2024 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/02/">2024 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/12/">2023 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/10/">2023 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/09/">2023 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/07/">2023 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/07/">2022 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/04/">2022 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/12/">2021 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/10/">2021 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/03/">2021 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/02/">2021 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/01/">2021 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/12/">2020 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/11/">2020 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/10/">2020 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/09/">2020 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/08/">2020 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/07/">2020 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/06/">2020 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/08/">2019 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/10/">2018 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/09/">2018 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/08/">2018 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/05/">2018 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/04/">2018 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/03/">2018 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/02/">2018 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/01/">2018 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/12/">2017 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/08/">2017 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/04/">2017 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/03/">2017 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/01/">2017 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/12/">2016 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/11/">2016 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/10/">2016 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/09/">2016 / 09</a></li></ul>
     </div>
   </div>
 
