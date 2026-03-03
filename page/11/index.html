@@ -81,6 +81,57 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2023/03/10/azure-ad-b2c-apgw" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <div class="article-inner">
+    <!-- post date -->
+    <div class="article-meta">
+      <a href="../../2023/03/10/azure-ad-b2c-apgw.html" class="article-date">
+  <time datetime="2023-03-09T15:00:00.000Z" itemprop="datePublished">2023-03-10</time>
+</a>
+      
+    </div>
+
+    
+    <!-- post title -->
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2023/03/10/azure-ad-b2c-apgw.html">Azure AD B2C 認証を設定した App Service と Application Gateway の統合</a>
+    </h1>
+  
+
+      </header>
+    
+
+    <!-- post caption -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        お世話になっております。App Service サポート担当の行本です。
+App Service に Azure AD B2C というサービスを連携する事で、好みのソーシャル、エンタープライズ、またはローカル アカウント ID を使用して、アプリケーションに SSO (シングル サインオン) でアクセスする事ができます。Azure AD B2C を使って Azure Web アプリで認証を構成する 方法については既にドキュメントがございますが、この構成の前段に Application Gateway を配置した際の環境構築手順について、お問い合わせをいただく事もございますので本記事で順を追って説明させていただきます。なお、本記事ではバックエンドに App Service を用いた手順を記載しておりますが、Azure Functions を用いた場合も同様に環境構築可能です。
+構成イメージ
+...
+        <p class="article-readmore">
+          <a href="../../2023/03/10/azure-ad-b2c-apgw.html">Read more</a>
+        </p>
+      
+    </div>
+
+    <footer class="article-footer">
+      <!--a data-url="https://komayama.github.io/jpazpaas/2023/03/10/azure-ad-b2c-apgw.html" data-id="cmm9ywcae007wsg3x1h4zfisy" class="article-share-link">共有</a-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/App-Service/" rel="tag">App Service</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Function-App/" rel="tag">Function App</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-2023/03/08/AppServiceLinux-robots933456-in-logs" class="article article-type-post" itemscope itemprop="blogPost">
 
   <div class="article-inner">
@@ -119,7 +170,7 @@
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2023/03/08/AppServiceLinux-robots933456-in-logs.html" data-id="cmm8una4g007muu3x8yzfbe8r" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2023/03/08/AppServiceLinux-robots933456-in-logs.html" data-id="cmm9ywca9007msg3xdz5r02uu" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/App-Service/" rel="tag">App Service</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/App-Service-on-Linux/" rel="tag">App Service on Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Node-js/" rel="tag">Node.js</a></li></ul>
@@ -179,10 +230,60 @@ Kay Vault を利用する
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2023/03/08/How-to-put-newline-in-app-settings-of-App-Service.html" data-id="cmm8una4j007puu3xbxt3cdlv" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2023/03/08/How-to-put-newline-in-app-settings-of-App-Service.html" data-id="cmm9ywcaa007psg3xevyf5ybh" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/App-Service/" rel="tag">App Service</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2023/03/07/Debug-JWT-validation-on-APIM" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <div class="article-inner">
+    <!-- post date -->
+    <div class="article-meta">
+      <a href="../../2023/03/07/Debug-JWT-validation-on-APIM.html" class="article-date">
+  <time datetime="2023-03-06T15:00:00.000Z" itemprop="datePublished">2023-03-07</time>
+</a>
+      
+    </div>
+
+    
+    <!-- post title -->
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2023/03/07/Debug-JWT-validation-on-APIM.html">HTTP リクエストを利用して Azure Active Directory からアクセストークンを発行して、APIM で JWT 検証を実行する</a>
+    </h1>
+  
+
+      </header>
+    
+
+    <!-- post caption -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        なりすましや改ざん防止のため、JWT 検証を導入しています。デバッグのため、HTTP リクエストを利用して Azure Active Directory からクライアント資格情報フローでアクセストークンを発行して、APIM で JWT 検証を実行したいです。
+回答API Management では、OAuth 2.0 プロトコルと Azure Active Directory (Azure AD) を使用して、API を保護できます。OAuth 2.0 承認と Azure Active Directory を使用して Azure API Management で API を保護する
+OAuth 2.0 ではアクセス トークンを取得するための承認フローが定義されています。The OAuth 2.0 Authorization Framework各承認フローの一般的なユースケースは以下の通りで...
+        <p class="article-readmore">
+          <a href="../../2023/03/07/Debug-JWT-validation-on-APIM.html">Read more</a>
+        </p>
+      
+    </div>
+
+    <footer class="article-footer">
+      <!--a data-url="https://komayama.github.io/jpazpaas/2023/03/07/Debug-JWT-validation-on-APIM.html" data-id="cmm9ywca1007fsg3x8zdma3dq" class="article-share-link">共有</a-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/API-Management/" rel="tag">API Management</a></li></ul>
 
     </footer>
   </div>
@@ -230,60 +331,10 @@ Function Apps には任意の HTTP トリガーをデプロイします。仕組
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2023/03/07/FunctionAndAPIM-FundamentalTroubleShootingSteps.html" data-id="cmm8una4d007fuu3xbiegck2c" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2023/03/07/FunctionAndAPIM-FundamentalTroubleShootingSteps.html" data-id="cmm9ywca5007hsg3x8hps5zhe" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/API-Management/" rel="tag">API Management</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Application-Insights/" rel="tag">Application Insights</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Function-App/" rel="tag">Function App</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2023/03/07/Debug-JWT-validation-on-APIM" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <div class="article-inner">
-    <!-- post date -->
-    <div class="article-meta">
-      <a href="../../2023/03/07/Debug-JWT-validation-on-APIM.html" class="article-date">
-  <time datetime="2023-03-06T15:00:00.000Z" itemprop="datePublished">2023-03-07</time>
-</a>
-      
-    </div>
-
-    
-    <!-- post title -->
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2023/03/07/Debug-JWT-validation-on-APIM.html">HTTP リクエストを利用して Azure Active Directory からアクセストークンを発行して、APIM で JWT 検証を実行する</a>
-    </h1>
-  
-
-      </header>
-    
-
-    <!-- post caption -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        なりすましや改ざん防止のため、JWT 検証を導入しています。デバッグのため、HTTP リクエストを利用して Azure Active Directory からクライアント資格情報フローでアクセストークンを発行して、APIM で JWT 検証を実行したいです。
-回答API Management では、OAuth 2.0 プロトコルと Azure Active Directory (Azure AD) を使用して、API を保護できます。OAuth 2.0 承認と Azure Active Directory を使用して Azure API Management で API を保護する
-OAuth 2.0 ではアクセス トークンを取得するための承認フローが定義されています。The OAuth 2.0 Authorization Framework各承認フローの一般的なユースケースは以下の通りで...
-        <p class="article-readmore">
-          <a href="../../2023/03/07/Debug-JWT-validation-on-APIM.html">Read more</a>
-        </p>
-      
-    </div>
-
-    <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2023/03/07/Debug-JWT-validation-on-APIM.html" data-id="cmm8una4e007huu3x0ftsdsev" class="article-share-link">共有</a-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/API-Management/" rel="tag">API Management</a></li></ul>
 
     </footer>
   </div>
@@ -335,7 +386,7 @@ API Management は、クライアントサイドからバックエンドの API 
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2023/03/07/Troubleshooting-4xx-and-5xx-Errors-with-Azure-APIM-services-Part-1.html" data-id="cmm8una4f007kuu3xdhridljn" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2023/03/07/Troubleshooting-4xx-and-5xx-Errors-with-Azure-APIM-services-Part-1.html" data-id="cmm9ywca6007ksg3xa60738s0" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/API-Management/" rel="tag">API Management</a></li></ul>
@@ -386,7 +437,7 @@ API Management は、クライアントサイドからバックエンドの API 
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2023/03/02/LogSampling-OnAzureFunctions.html" data-id="cmm8una4c007cuu3x88qw4g4j" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2023/03/02/LogSampling-OnAzureFunctions.html" data-id="cmm9ywc9z007csg3xhem8dad0" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Function-App/" rel="tag">Function App</a></li></ul>
@@ -436,7 +487,7 @@ Azure ストレージアカウントではネットワーク設定機能を用�
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2023/02/21/Use-AzureFrontDoor-to-restrict-access-to-StorageAccounts-to-HTTP-Headers.html" data-id="cmm8una4b007auu3xc8qu6tz1" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2023/02/21/Use-AzureFrontDoor-to-restrict-access-to-StorageAccounts-to-HTTP-Headers.html" data-id="cmm9ywc9y0077sg3xespi69q4" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Storage/" rel="tag">Storage</a></li></ul>
@@ -485,7 +536,7 @@ App Service は、新しい機能、新しいランタイムバージョン、�
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2023/02/16/Routine-Planned-Maintenance-Notifications-for-Azure-App-Service.html" data-id="cmm8una490075uu3x4aqubhzh" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2023/02/16/Routine-Planned-Maintenance-Notifications-for-Azure-App-Service.html" data-id="cmm9ywc9x0075sg3x0laxd79w" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/App-Service/" rel="tag">App Service</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/App-Service-Environment/" rel="tag">App Service Environment</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Function-App/" rel="tag">Function App</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Web-Apps/" rel="tag">Web Apps</a></li></ul>
@@ -544,63 +595,10 @@ Azure Portal のストレージ ア...
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2023/02/16/How-to-identify-the-user-performed-BLOB-operations-in-Azure-Portal.html" data-id="cmm8una4a0077uu3x5odh6sxa" class="article-share-link">共有</a-->
+      <!--a data-url="https://komayama.github.io/jpazpaas/2023/02/16/How-to-identify-the-user-performed-BLOB-operations-in-Azure-Portal.html" data-id="cmm9ywc9z007asg3xcgzm7ied" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Storage/" rel="tag">Storage</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2023/02/15/Docker-User-Namespace-remapping-issues" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <div class="article-inner">
-    <!-- post date -->
-    <div class="article-meta">
-      <a href="../../2023/02/15/Docker-User-Namespace-remapping-issues.html" class="article-date">
-  <time datetime="2023-02-14T15:00:00.000Z" itemprop="datePublished">2023-02-15</time>
-</a>
-      
-    </div>
-
-    
-    <!-- post title -->
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2023/02/15/Docker-User-Namespace-remapping-issues.html">App Service における Docker User Namespace remapping issues について</a>
-    </h1>
-  
-
-      </header>
-    
-
-    <!-- post caption -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        お世話になっております。App Service サポート担当の押田です。
-本記事は 2022 年 6 月 30 日に公開されました Docker User Namespace remapping issues の日本語訳です。翻訳内容には細心の注意を払っておりますが、もし原文内容と齟齬がある場合は、原文の内容を優先くださいませ。
-<!--
-Docker has a concept of **User namespace** and **User namespace remapping** (Otherwise known as `userns`). When this is used, this remaps users in the container to less privileged users on the host machine. 
-
-Sometimes, a user ma...
-        <p class="article-readmore">
-          <a href="../../2023/02/15/Docker-User-Namespace-remapping-issues.html">Read more</a>
-        </p>
-      
-    </div>
-
-    <footer class="article-footer">
-      <!--a data-url="https://komayama.github.io/jpazpaas/2023/02/15/Docker-User-Namespace-remapping-issues.html" data-id="cmm8una480073uu3xgscp9b8p" class="article-share-link">共有</a-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/App-Service/" rel="tag">App Service</a></li></ul>
 
     </footer>
   </div>
@@ -630,6 +628,10 @@ Sometimes, a user ma...
           </li>
         
           <li>
+            <a href="../../2026/03/02/AppService-Node24-on-windows-needs-64bit-process.html">App Service / Azure Functions の Windows 環境において `Node.js 24` を利用する場合は 64 bit process の有効化を行ってください。</a>
+          </li>
+        
+          <li>
             <a href="../../2026/01/27/ACS-Email-quota-increase.html">Azure Communication Services Email クォータ緩和について</a>
           </li>
         
@@ -639,10 +641,6 @@ Sometimes, a user ma...
         
           <li>
             <a href="../../2025/12/22/How-to-resolve-the-document-key-character-limit-error.html">ドキュメントキー文字数制限エラーの解消法</a>
-          </li>
-        
-          <li>
-            <a href="../../2025/09/08/ACS-Email-Onboarding-FAQ.html">Azure Communication Services メール機能でよく頂くご質問</a>
           </li>
         
       </ul>
